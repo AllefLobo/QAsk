@@ -30,14 +30,14 @@ public class AuthenticationFilter implements Filter {
 		
 		String path = ((HttpServletRequest) req).getRequestURI();
 		
-		if( path.contains("login.jsp") || path.contains("autentica") ){
+//		if( path.contains("login.jsp") ){
+//			chain.doFilter(req, resp);
+//		}else if( session != null && session.getAttribute("user") != null ){
 			chain.doFilter(req, resp);
-		}else if( session != null && session.getAttribute("user") != null ){
-			chain.doFilter(req, resp);
-		}else{
-			((HttpServletResponse)resp).sendRedirect("login.jsp");
-			return;
-		}
+//		}else{
+//			((HttpServletResponse)resp).sendRedirect("login.jsp");
+//			return;
+//		}
 		
 		
 	}
