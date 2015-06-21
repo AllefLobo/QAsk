@@ -28,13 +28,13 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
       <div class="collapse navbar-collapse navHeaderCollapse">
         <ul class="nav navbar-nav navbar-right">
-          <li ><a href="file:///home/lucas/TrabalhoWeb/index.jsp">Home</a></li>
+          <li ><a href="/Qask/index.jsp">Home</a></li>
 
-          <li ><a href="#">Perguntas</a></li>
+          <li ><a href="/Qask/perguntas.jsp">Perguntas</a></li>
 
           <!-- <li class="dropdown"> -->
           <li class="active">  
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Perfil</a>
+            <a href="/Qask/perfil.jsp">Perfil</a>
 
             <!--<ul class="dropdown-menu">
               <li><a href="#">Perfil</a></li>
@@ -47,9 +47,9 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
             </ul>-->
           </li>
 
-          <li><a href="#">Amigos</a></li>
+          <li><a href="/Qask/amigos.jsp">Amigos</a></li>
 
-          <li><a href="#">Configuraçao</a></li>
+          <li><a href="/Qask/configuracao.jsp">Configuraçao</a></li>
         </ul>
       </div>
     </div>

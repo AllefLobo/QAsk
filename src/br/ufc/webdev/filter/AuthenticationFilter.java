@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter("/*")
-public class AuthenticationFilter implements Filter {
 
+public class AuthenticationFilter implements Filter {
+//@WebFilter("/*")
 	@Override
 	public void destroy() {
 

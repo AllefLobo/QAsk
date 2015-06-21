@@ -28,7 +28,7 @@ public class DatabaseConnectionFilter implements Filter {
 		req.setAttribute("connection", connection);
 		chain.doFilter(req, resp);
 		try {connection.close();} catch (SQLException e) {}
-
+	
 	}
 
 	@Override

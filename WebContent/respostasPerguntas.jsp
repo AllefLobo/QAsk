@@ -65,7 +65,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
         <textarea class="campoTexto"></textarea>
         </br>
         <input type='submit' class="btn btn-primary" value='Postar'>
-        <input type='submit' class="btn btn-danger" value='Canxelar'>
+        <input type='submit' class="btn btn-danger" value='Cancelar'>
       </form>
     </div>
 

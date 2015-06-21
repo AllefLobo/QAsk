@@ -27,12 +27,12 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
       <div class="collapse navbar-collapse navHeaderCollapse">
         <ul class="nav navbar-nav navbar-right">
-          <li ><a href="file:///home/lucas/TrabalhoWeb/index.jsp">Home</a></li>
+          <li ><a href="/Qask/index.jsp">Home</a></li>
 
-          <li class="active"><a href="#">Perguntas</a></li>
+          <li class="active"><a href="/Qask/perguntas.jsp">Perguntas</a></li>
 
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Perfil</a>
+            <a href="/Qask/perfil.jsp" >Perfil</a>
 
             <!--<ul class="dropdown-menu">
               <li><a href="#">Perfil</a></li>
@@ -45,9 +45,9 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
             </ul>-->
           </li>
 
-          <li><a href="#">Amigos</a></li>
+          <li><a href="/Qask/amigos.jsp">Amigos</a></li>
 
-          <li><a href="#">Configuraçao</a></li>
+          <li><a href="/Qask/configuracao.jsp">Configuraçao</a></li>
         </ul>
       </div>
     </div>
@@ -62,17 +62,17 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
     <h2>Perguntas</h2>  
       <div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean cursus ullamcorper eros, a gravida enim congue eu. Nullam eu hendrerit enim. Ut nec dolor eget justo dignissim euismod id vel au?</p>
-        <a href="#" class="btn btn-primary " >Responder</a>
+        <a href="/Qask/respostasPerguntas.jsp" class="btn btn-primary " >Responder</a>
         <a href="#" class="btn btn-danger " >Apagar</a>
       </div>
       <div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean cursus ullamcorper eros, a gravida enim congue eu. Nullam eu hendrerit enim. Ut nec dolor eget justo dignissim euismod id vel au?</p>
-        <a href="#" class="btn btn-primary " >Responder</a>
+        <a href="/Qask/respostasPerguntas.jsp" class="btn btn-primary " >Responder</a>
         <a href="#" class="btn btn-danger " >Apagar</a>
       </div>
       <div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean cursus ullamcorper eros, a gravida enim congue eu. Nullam eu hendrerit enim. Ut nec dolor eget justo dignissim euismod id vel au?</p>
-        <a href="#" class="btn btn-primary " >Responder</a>
+        <a href="/Qask/respostasPerguntas.jsp" class="btn btn-primary " >Responder</a>
         <a href="#" class="btn btn-danger " >Apagar</a>
       </div>
 
