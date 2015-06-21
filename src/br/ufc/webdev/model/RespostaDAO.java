@@ -10,40 +10,40 @@ import java.util.List;
 
 
 
-public class PessoaDAO {
+public class RespostaDAO {
 
-	private static final String PESSOA_ID = "id";
-	private static final String PESSOA_NOME = "nome";
-	private static final String PESSOA_EMAIL = "email";
-	private static final String PESSOA_SENHA = "senha";
+	private static final String RESPOSTA_ID = "id";
+	private static final String RESPOSTA_CONTEUDO = "nome";
+	private static final String RESPOSTA_ID_CRIADOR = "email";
+
 	
 	private Connection connection;
 	
-	public PessoaDAO(Connection connection){
+	public RespostaDAO(Connection connection){
 		this.connection = connection;
 	}
 	
-	private Pessoa bindPessoa(ResultSet rs) throws SQLException {
-		Pessoa pessoa = new Pessoa();
-		pessoa.setId(rs.getInt(PESSOA_ID));
-		pessoa.setNome(rs.getString(PESSOA_NOME));
-		pessoa.setEmail(rs.getString(PESSOA_EMAIL));
-		pessoa.setSenha(rs.getString(PESSOA_SENHA));
-		return pessoa;
+	private Resposta bindResposta(ResultSet rs) throws SQLException {
+		Resposta resposta = new Resposta();
+		resposta.setId(rs.getInt(RESPOSTA_ID));
+		resposta.setConteudo(rs.getString(RESPOSTA_CONTEUDO));
+		resposta.setId_criador(rs.getInt(RESPOSTA_ID_CRIADOR));
+
+		return resposta;
 	}
 	
 	
 	 
-	public List<Pessoa> getAll() throws SQLException{
-		List<Pessoa> all = new ArrayList<Pessoa>();
+	public List<Resposta> getAll() throws SQLException{
+		List<Resposta> all = new ArrayList<Resposta>();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;	
 		try {
-			stmt =	connection.prepareStatement("Select * from pessoa");
+			stmt =	connection.prepareStatement("Select * from resposta");
 			rs = stmt.executeQuery();
 			while(rs.next()){
-				Pessoa pessoa = bindPessoa(rs);
-				all.add(pessoa);
+				Resposta resposta = bindResposta(rs);
+				all.add(resposta);
 			}
 			
 		} catch (SQLException e) {
