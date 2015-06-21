@@ -54,21 +54,23 @@ public class RespostaDAO {
 		return all;
 	}
 
-	public boolean authenticate( Pessoa pessoa ) throws SQLException {
+	public Resposta findById( int id ) throws SQLException {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			stmt = connection.prepareStatement("Select * from pessoa where nome = ? and senha = ?");
-			stmt.setString(1, pessoa.getNome());
-			stmt.setString(2, pessoa.getSenha());
+			stmt = connection.prepareStatement("Select * from resposta where id = ?");
+			stmt.setInt(1, id);
 			rs = stmt.executeQuery();
-			return rs.first();
+			while(rs.first()){
+				Resposta resposta = bindResposta(rs);
+				return resposta;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally{
 			closeOpenResources(rs, stmt);
 		}
-		return false;
+		return null;
 	}
 	
 	public void insert(Pessoa pessoa) throws SQLException{
