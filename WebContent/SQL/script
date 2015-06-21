@@ -1,6 +1,6 @@
 create database Qask;
 
-use database Qask;
+use Qask;
 
 create table pessoa(
 id_pessoa int not null primary key,
