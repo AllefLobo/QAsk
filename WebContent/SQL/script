@@ -1,0 +1,51 @@
+create database Qask;
+
+use database Qask;
+
+create table pessoa(
+id_pessoa int not null primary key,
+nome varchar(30),
+email varchar(20),
+senha varchar(16));
+
+create table resposta(
+id_resposta int not null primary key,
+conteudo_resposta varchar(255),
+id_criador int,
+FOREIGN KEY (id_criador)
+REFERENCES pessoa(id_pessoa));
+
+create table pergunta(
+id_pergunta int not null primary key,
+conteudo_pergunta varchar(255),
+id_criador int,
+FOREIGN KEY (id_criador)
+REFERENCES pessoa(id_pessoa));
+
+create table perguntaPara(
+id_pergunta int,
+id_remetente int,
+id_destino int,
+id_resposta int,
+FOREIGN KEY (id_pergunta)
+REFERENCES pergunta(id_pergunta),
+FOREIGN KEY (id_remetente)
+REFERENCES pessoa(id_pessoa),
+FOREIGN KEY (id_destino)
+REFERENCES pessoa(id_pessoa),
+FOREIGN KEY (id_resposta)
+REFERENCES resposta(id_reposta));
+
+create table amigoDe(
+id_pessoa int,
+id_amigo int,
+FOREIGN KEY (id_pessoa )
+REFERENCES pessoa(id_pessoa),
+FOREIGN KEY (id_amigo)
+REFERENCES pessoa(id_pessoa ));
+
+
+
+
+
+
