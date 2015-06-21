@@ -2,6 +2,7 @@ package br.ufc.webdev.controller;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 
 import br.ufc.webdev.model.Pessoa;
 import br.ufc.webdev.model.PessoaDAO;
@@ -29,27 +29,31 @@ public class AuthenticationController extends HttpServlet{
 		Connection connection = (Connection) req.getAttribute("connection");
 		PessoaDAO dao = new PessoaDAO(connection);
 		
-		String nome = req.getParameter("login");
-		String senha = req.getParameter("senha");
+		String nome = req.getParameter("username");
+		String senha = req.getParameter("password");
 		
 		Pessoa pessoa = new Pessoa();
 		
 		pessoa.setNome(nome);
 		pessoa.setSenha(senha);
 		
-//		if( dao.authenticate(usuario) ){
-//			List<Produto> lista = new ArrayList();
-//			System.out.println(dao.authenticate(usuario));
-//			HttpSession session = req.getSession();
-//			session.setAttribute("user", usuario);
-//			session.setAttribute("lista", lista);
-//			
-//			resp.sendRedirect("index.jsp");
-//			return;			
-//		}else{
-//			resp.sendRedirect("login.jsp");
-//			return;
-//		}
+		try {
+			if( dao.authenticate(pessoa) ){
+				
+				System.out.println(dao.authenticate(pessoa));
+				HttpSession session = req.getSession();
+				session.setAttribute("user", pessoa);
+				
+				resp.sendRedirect("index.jsp");
+				return;			
+			}else{
+				resp.sendRedirect("login.jsp");
+				return;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

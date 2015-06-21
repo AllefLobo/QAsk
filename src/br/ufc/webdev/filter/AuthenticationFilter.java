@@ -26,11 +26,11 @@ public class AuthenticationFilter implements Filter {
 			FilterChain chain) throws IOException, ServletException {		
 			
 		
-		HttpSession session = ((HttpServletRequest) req).getSession(false);
-		
-		String path = ((HttpServletRequest) req).getRequestURI();
-		
-//		if( path.contains("login.jsp") ){
+//		HttpSession session = ((HttpServletRequest) req).getSession(false);
+//		
+//		String path = ((HttpServletRequest) req).getRequestURI();
+//		
+//		if( path.contains("login.jsp") || path.contains("autentica") ){
 //			chain.doFilter(req, resp);
 //		}else if( session != null && session.getAttribute("user") != null ){
 			chain.doFilter(req, resp);
@@ -38,7 +38,8 @@ public class AuthenticationFilter implements Filter {
 //			((HttpServletResponse)resp).sendRedirect("login.jsp");
 //			return;
 //		}
-		
+
+			
 		
 	}
 

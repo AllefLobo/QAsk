@@ -54,23 +54,21 @@ public class PessoaDAO {
 		return all;
 	}
 
-	public Pessoa findById(Long id) throws SQLException {
+	public boolean authenticate( Pessoa pessoa ) throws SQLException {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			stmt = connection.prepareStatement("Select * from pessoa where id = ?");
-			stmt.setLong(1, id);
+			stmt = connection.prepareStatement("Select * from pessoa where nome = ? and senha = ?");
+			stmt.setString(1, pessoa.getNome());
+			stmt.setString(2, pessoa.getSenha());
 			rs = stmt.executeQuery();
-			if(rs.first()){
-				Pessoa pessoa = bindProduto(rs);
-				return pessoa;
-			}
+			return rs.first();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally{
 			closeOpenResources(rs, stmt);
 		}
-		return null;
+		return false;
 	}
 	
 	public void insert(Pessoa pessoa) throws SQLException{
