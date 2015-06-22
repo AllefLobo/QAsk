@@ -10,9 +10,11 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 
 import br.ufc.webdev.model.ConnectionFactory;
 
+@WebFilter("/*")
 public class DatabaseConnectionFilter implements Filter {
 
 	@Override

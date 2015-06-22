@@ -9,7 +9,7 @@ public class ConnectionFactory {
 	public Connection getConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://localhost:3306/webdev",
+			return DriverManager.getConnection("jdbc:mysql://localhost:3306/Qask",
 					"root", "root");
 		} catch (SQLException e) {
 			throw new RuntimeException(e);			

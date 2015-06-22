@@ -45,9 +45,10 @@ public class InsertController extends HttpServlet{
 
 	private boolean isValid(HttpServletRequest req, Pessoa pessoa, List<String> erros) {
 		
-		String nome = req.getParameter("nome").trim();
-		String senha = req.getParameter("senha").trim();
+		String nome = req.getParameter("username").trim();
 		String email = req.getParameter("email").trim();
+		String senha = req.getParameter("password").trim();
+		
 		
 		if (nome == null || senha == null || email == null) {
 			erros.add("Preencha os campos de nome e senha");
