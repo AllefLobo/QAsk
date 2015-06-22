@@ -92,7 +92,7 @@ public class PessoaDAO {
 	
 	public void remove(Pessoa produto) {
 		PreparedStatement stmt = null;
-		String sql = "delete from pessoa where id = ?";
+		String sql = "delete from pessoa where id_pessoa = ?";
 		try {
 			stmt = connection.prepareStatement(sql);
 			stmt.setLong(1, produto.getId());
@@ -107,7 +107,7 @@ public class PessoaDAO {
 	public void update(Pessoa pessoa) throws SQLException {
 
 		PreparedStatement stmt = null;
-		String sql = "update pessoa set nome = ?, email = ?, senha = ? where id = ?";
+		String sql = "update pessoa set nome = ?, email = ?, senha = ? where id_pessoa = ?";
 		try {
 			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, pessoa.getNome());
