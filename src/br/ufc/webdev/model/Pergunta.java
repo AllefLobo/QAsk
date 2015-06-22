@@ -4,6 +4,7 @@ public class Pergunta {
 	private int id;
 	private String conteudo;
 	private int id_criador;
+	
 	public int getId() {
 		return id;
 	}
