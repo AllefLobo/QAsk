@@ -39,7 +39,7 @@ public class RespostaDAO {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;	
 		try {
-			stmt =	connection.prepareStatement("Select * from resposta");
+			stmt =	connection.prepareStatement("select * from resposta");
 			rs = stmt.executeQuery();
 			while(rs.next()){
 				Resposta resposta = bindResposta(rs);
@@ -58,7 +58,7 @@ public class RespostaDAO {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			stmt = connection.prepareStatement("Select * from resposta where id = ?");
+			stmt = connection.prepareStatement("select * from resposta where id_resposta = ?");
 			stmt.setInt(1, id);
 			rs = stmt.executeQuery();
 			while(rs.first()){
@@ -73,55 +73,54 @@ public class RespostaDAO {
 		return null;
 	}
 	
-	public void insert(Pessoa pessoa) throws SQLException{
+	public void insert(Resposta resposta) throws SQLException{
 		PreparedStatement stmt = null;
-		String sql = "insert into pessoa(nome, email, senha) values (?,?,?)";
+		String sql = "insert into resposta(id_resposta, conteudo_resposta, id_criador) values (?,?,?)";
 		try {
 			stmt = connection.prepareStatement(sql);
 
-			stmt.setString(1, pessoa.getNome());
-			stmt.setString(2, pessoa.getEmail());
-			stmt.setString(3, pessoa.getSenha());
+			stmt.setInt(1, resposta.getId());
+			stmt.setString(2, resposta.getConteudo());
+			stmt.setInt(3, resposta.getId_criador());
 
 			stmt.execute();
 
 		} catch (SQLException e) {
-			throw new RuntimeException("Nao foi possivel adicionar a pessoa");
+			throw new RuntimeException("Nao foi possivel adicionar a resposta");
 		} finally {
 				closeOpenResources(stmt);
 		}
 	}
 	
-	public void remove(Pessoa produto) {
+	public void remove(Resposta resposta) {
 		PreparedStatement stmt = null;
-		String sql = "delete from pessoa where id = ?";
+		String sql = "delete from resposta where id_resposta = ? and id_criador = ?";
 		try {
 			stmt = connection.prepareStatement(sql);
-			stmt.setLong(1, produto.getId());
+			stmt.setInt(1, resposta.getId() );
+			stmt.setInt(2, resposta.getId_criador() );
 			stmt.execute();
 		} catch (SQLException e) {
-			throw new RuntimeException("Nao foi possivel remover a pessoa");
+			throw new RuntimeException("Nao foi possivel remover a resposta");
 		} finally {
 			closeOpenResources(stmt);
 		}
 	}
 	
-	public void update(Pessoa pessoa) throws SQLException {
+	public void update( Resposta resposta ) throws SQLException {
 
 		PreparedStatement stmt = null;
-		String sql = "update pessoa set nome = ?, email = ?, senha = ? where id = ?";
+		String sql = "update pessoa set conteudo_resposta = ? where id_resposta = ?";
 		try {
 			stmt = connection.prepareStatement(sql);
-			stmt.setString(1, pessoa.getNome());
-			stmt.setString(2, pessoa.getEmail());
-			stmt.setString(3, pessoa.getSenha());
-			stmt.setLong(4, pessoa.getId());
-
+			stmt.setString(1, resposta.getConteudo() );
+			stmt.setInt(2, resposta.getId() );
+			
 			stmt.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException("Nao foi possivel alterar pessoa");
+			throw new RuntimeException("Nao foi possivel alterar a resposta");
 		} finally {
 				closeOpenResources(stmt);
 		}
