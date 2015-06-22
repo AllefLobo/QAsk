@@ -62,7 +62,7 @@
                   </div>
                 </form>
                 <!-- Form registar -->
-                <form id="register-form" action="" method="post" role="form" style="display: none;">
+                <form id="register-form" action="autentica" method="post" role="form" style="display: none;">
                   <div class="form-group">
                     <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
                   </div>

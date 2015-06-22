@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.ufc.webdev.model.Pessoa;
 import br.ufc.webdev.model.PessoaDAO;
 
-@WebServlet(name="adicionaPessoa", urlPatterns={"/AdicionaPessoa"})
+@WebServlet(name="adicionaPessoa", urlPatterns={"/adicionaPessoa"})
 public class InsertController extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
