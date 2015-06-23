@@ -30,7 +30,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
       <div class="collapse navbar-collapse navHeaderCollapse">
         <ul class="nav navbar-nav navbar-right">
-          <li ><a href="/Qask/index.jsp">Home</a></li>
+          <li ><a href="/Qask/listarRespostas">Home</a></li>
 
           <li ><a href="/Qask/perguntas.jsp">Perguntas</a></li>
 
