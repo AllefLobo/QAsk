@@ -20,9 +20,11 @@ public class PessoaDAO<E> {
 		this.connection = connection;
 	}
 	
-	private List<Pessoa> bindAmigosPessoa(int id){
-		List<Integer> idAmigos = new ArrayList<>();
-		List<Pessoa> amigos = new ArrayList<>();
+	
+	public List<Pessoa> bindAmigosPessoa(int id){
+		
+		List<Integer> idAmigos = new ArrayList<Integer>();
+		List<Pessoa> amigos = new ArrayList<Pessoa>();
 		PreparedStatement smt = null;
 		ResultSet rs = null;
 		
@@ -38,7 +40,7 @@ public class PessoaDAO<E> {
 			
 			for(int i: idAmigos){
 				Pessoa pessoa = new Pessoa();
-				pessoa = buscarPessoa(id);
+				pessoa = buscarPessoa(i);
 				amigos.add(pessoa);
 			}
 			
@@ -51,7 +53,7 @@ public class PessoaDAO<E> {
 		
 		
 	}
-	public Pessoa buscarPessoa(int id){
+	private Pessoa buscarPessoa(int id){
 		PreparedStatement smt = null;
 		ResultSet rs = null;
 		try {
