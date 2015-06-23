@@ -14,7 +14,7 @@ public class ConnectionFactory {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			return (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/Qask",
-					"root", "");
+					"root", "root");
 		} catch (SQLException e) {
 			throw new RuntimeException(e);			
 		} catch (ClassNotFoundException e) {
