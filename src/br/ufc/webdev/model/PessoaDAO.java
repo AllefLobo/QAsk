@@ -42,7 +42,7 @@ public class PessoaDAO {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;	
 		try {
-			stmt =	(PreparedStatement) connection.prepareStatement("Select * from pessoa");
+			stmt =	connection.prepareStatement("Select * from pessoa");
 			rs = stmt.executeQuery();
 			while(rs.next()){
 				Pessoa pessoa = bindPessoa(rs);
@@ -78,7 +78,7 @@ public class PessoaDAO {
 		PreparedStatement stmt = null;
 		String sql = "insert into pessoa(nome, email, senha) values (?,?,?)";
 		try {
-			stmt = (PreparedStatement) connection.prepareStatement(sql);
+			stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1, pessoa.getNome());
 			stmt.setString(2, pessoa.getEmail());
@@ -97,7 +97,7 @@ System.out.println(pessoa.getEmail());
 		PreparedStatement stmt = null;
 		String sql = "delete from pessoa where id_pessoa = ?";
 		try {
-			stmt = (PreparedStatement) connection.prepareStatement(sql);
+			stmt = connection.prepareStatement(sql);
 			stmt.setLong(1, produto.getId());
 			stmt.execute();
 		} catch (SQLException e) {
@@ -112,7 +112,7 @@ System.out.println(pessoa.getEmail());
 		PreparedStatement stmt = null;
 		String sql = "update pessoa set nome = ?, email = ?, senha = ? where id_pessoa = ?";
 		try {
-			stmt = (PreparedStatement) connection.prepareStatement(sql);
+			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, pessoa.getNome());
 			stmt.setString(2, pessoa.getEmail());
 			stmt.setString(3, pessoa.getSenha());

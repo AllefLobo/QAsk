@@ -3,20 +3,20 @@ create database Qask;
 use Qask;
 
 create table pessoa(
-id_pessoa int not null primary key,
+id_pessoa int not null AUTO_INCREMENT primary key,
 nome varchar(30),
 email varchar(20),
 senha varchar(16));
 
 create table resposta(
-id_resposta int not null primary key,
+id_resposta int not null AUTO_INCREMENT primary key,
 conteudo_resposta varchar(255),
 id_criador int,
 FOREIGN KEY (id_criador)
 REFERENCES pessoa(id_pessoa));
 
 create table pergunta(
-id_pergunta int not null primary key,
+id_pergunta int not null AUTO_INCREMENT primary key,
 conteudo_pergunta varchar(255),
 id_remetente int,
 id_destino int,
