@@ -29,13 +29,13 @@ public class PerguntaDAO {
 		return pergunta;
 	}
 	
-	public List<Pergunta> pegarPerguntasDePessoa(Pessoa pessoa){
+	public List<Pergunta> pegarPerguntasDePessoa(Pessoa pessoa){ 
 		List<Pergunta> all = new ArrayList<Pergunta>();
 		PreparedStatement smt;
 		ResultSet rs = null;
 		
 		try {
-			smt = connection.prepareStatement("Select *from pergunta as pt, pessoa ps where pt.id_destino = ?");
+			smt = connection.prepareStatement("Select *from pergunta pt where pt.id_destino = ?");
 			smt.setInt(1, pessoa.getId());
 			rs = smt.executeQuery();
 			while(rs.next()){
