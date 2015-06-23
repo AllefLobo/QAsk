@@ -83,7 +83,7 @@ public class PessoaDAO {
 			stmt.setString(1, pessoa.getNome());
 			stmt.setString(2, pessoa.getEmail());
 			stmt.setString(3, pessoa.getSenha());
-System.out.println(pessoa.getEmail());
+
 			stmt.execute();
 
 		} catch (SQLException e) {
