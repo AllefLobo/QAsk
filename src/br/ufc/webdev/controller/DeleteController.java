@@ -14,7 +14,7 @@ import br.ufc.webdev.model.PessoaDAO;
 
 
 @WebServlet(name="deletaPessoa", urlPatterns={"/deletaPessoa"})
-public class deleteController extends HttpServlet{
+public class DeleteController extends HttpServlet{
 	/**
 	 * 
 	 */
