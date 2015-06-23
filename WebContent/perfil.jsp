@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +52,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
           <li><a href="/Qask/amigos.jsp">Amigos</a></li>
 
-          <li><a href="/Qask/configuracao.jsp">Configuraçao</a></li>
+          <li><a href="/Qask/configuracao.jsp">ConfiguraÃ§ao</a></li>
             <li><a href="sair">Sair</a></li>
         </ul>
       </div>
@@ -87,8 +90,8 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
                 </a>
                 <span>1</span>
                 <div class="user-heading">
-                    <h3>Karan Singh Sisodia</h3>
-                    <span class="help-block">Chandigarh, IN</span>
+                    <h3>${user.nome}</h3>
+                
                 </div>
             </div>
         </div>
@@ -98,9 +101,9 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
 
 
-      <form method = "post" action="perfilController">
+      <form method ="POST" action="perfilController">
         <h2>Fa&ccedila-me uma Pergunta</h2> 
-        <textarea class="campoTexto" id="pergunta"></textarea>
+        <textarea class="pergunta" id="pergunta"></textarea>
         </br>
         <input type='submit' class="btn btn-primary" value='Perguntar'>
         

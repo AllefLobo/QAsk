@@ -43,7 +43,7 @@ public class PerfilController extends HttpServlet {
 			throws ServletException, IOException {
 
 		String conteudo = req.getParameter("pergunta");
-		
+		System.out.println(conteudo);
 		HttpSession session = req.getSession(true);
 		
 		Connection connection = (Connection) req.getAttribute("connection");
@@ -58,6 +58,6 @@ public class PerfilController extends HttpServlet {
 		if(conteudo != null && conteudo != ""){
 			dao.addPergunta(pergunta);
 		}
-		
+		req.getRequestDispatcher("perfil.jsp").forward(req, resp);
 	}
 }
