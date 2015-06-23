@@ -63,7 +63,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
 
     <div class="well well-sm">
-    <form method="atualizarPessoa" action="">
+    <form method="post" action="atualizarPessoa">
         <p><b>Nome:</b></p>
         <input type="text" id='nome' name="nome" value="${user.nome}" />
         <p><b>Email:</b></p>
