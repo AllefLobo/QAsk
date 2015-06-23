@@ -44,10 +44,10 @@ public class AuthenticationController extends HttpServlet{
 				HttpSession session = req.getSession();
 				session.setAttribute("user", pessoa);
 				
-				resp.sendRedirect("index.jsp");
+				req.getRequestDispatcher("index.jsp").forward(req, resp);
 				return;			
 			}else{
-				resp.sendRedirect("login.jsp");
+				req.getRequestDispatcher("login.jsp").forward(req, resp);;
 				return;
 			}
 		} catch (SQLException e) {
