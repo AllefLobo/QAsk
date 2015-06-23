@@ -132,7 +132,7 @@ public class PessoaDAO {
 		String sql = "delete from pessoa where id_pessoa = ?";
 		try {
 			stmt = connection.prepareStatement(sql);
-			stmt.setLong(1, produto.getId());
+			stmt.setInt(1, produto.getId());
 			stmt.execute();
 		} catch (SQLException e) {
 			throw new RuntimeException("Nao foi possivel remover a pessoa");
@@ -150,9 +150,9 @@ public class PessoaDAO {
 			stmt.setString(1, pessoa.getNome());
 			stmt.setString(2, pessoa.getEmail());
 			stmt.setString(3, pessoa.getSenha());
-			stmt.setLong(4, pessoa.getId());
+			stmt.setInt(4, pessoa.getId());
 
-			stmt.execute(sql);
+			stmt.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();

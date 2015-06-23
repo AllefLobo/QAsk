@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.ufc.webdev.model.Pessoa;
 import br.ufc.webdev.model.PessoaDAO;
@@ -38,6 +39,8 @@ public class UpdateController extends HttpServlet {
 				
 				try {
 					dao.update(pessoa);
+					HttpSession session = req.getSession();
+					session.setAttribute("user", pessoa);
 					req.getRequestDispatcher("listarRespostas").forward(req, resp);
 					
 				} catch (SQLException e) {} catch (ServletException e) {
