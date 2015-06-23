@@ -52,13 +52,13 @@ public class AmigoDAO {
 		}
 	}
 
-	public boolean authenticate( Pessoa pessoa ) throws SQLException {
+	public boolean authenticate( int id_pessoa, int id_amigo ) throws SQLException {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			stmt = (PreparedStatement) connection.prepareStatement("Select * from pessoa where nome = ? and senha = ?");
-			stmt.setString(1, pessoa.getNome());
-			stmt.setString(2, pessoa.getSenha());
+			stmt = (PreparedStatement) connection.prepareStatement("select * from amigoDe where id_pessoa = ? and id_amigo = ?");
+			stmt.setInt(1, id_pessoa);
+			stmt.setInt(2, id_amigo);
 			rs = stmt.executeQuery();
 			return rs.first();
 		} catch (SQLException e) {
@@ -69,34 +69,34 @@ public class AmigoDAO {
 		return false;
 	}
 	
-	public void insert(Pessoa pessoa) throws SQLException{
+	public void adiciona(int id_pessoa, int id_amigo) throws SQLException{
 		PreparedStatement stmt = null;
-		String sql = "insert into pessoa(nome, email, senha) values (?,?,?)";
+		String sql = "insert into amigoDe(id_pessoa, id_amigo) values (?,?)";
 		try {
 			stmt = connection.prepareStatement(sql);
 
-			stmt.setString(1, pessoa.getNome());
-			stmt.setString(2, pessoa.getEmail());
-			stmt.setString(3, pessoa.getSenha());
-
+			stmt.setInt(1, id_pessoa);
+			stmt.setInt(2, id_amigo);
+			
 			stmt.execute();
 
 		} catch (SQLException e) {
-			throw new RuntimeException("Nao foi possivel adicionar a pessoa");
+			throw new RuntimeException("Nao foi possivel adicionar o amigo");
 		} finally {
 				closeOpenResources(stmt);
 		}
 	}
 	
-	public void remove(Pessoa produto) {
+	public void remove(int id_pessoa, int id_amigo) {
 		PreparedStatement stmt = null;
-		String sql = "delete from pessoa where id_pessoa = ?";
+		String sql = "delete from amigoDe where id_pessoa = ? and id_amigo = ?";
 		try {
 			stmt = connection.prepareStatement(sql);
-			stmt.setLong(1, produto.getId());
+			stmt.setInt(1, id_pessoa);
+			stmt.setInt(2, id_amigo);
 			stmt.execute();
 		} catch (SQLException e) {
-			throw new RuntimeException("Nao foi possivel remover a pessoa");
+			throw new RuntimeException("Nao foi possivel remover o amigo");
 		} finally {
 			closeOpenResources(stmt);
 		}
