@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PessoaDAO {
+public class PessoaDAO<E> {
 
 	private static final String PESSOA_ID = "id_pessoa";
 	private static final String PESSOA_NOME = "nome";
@@ -19,6 +19,61 @@ public class PessoaDAO {
 	public PessoaDAO(Connection connection){
 		this.connection = connection;
 	}
+	
+	private List<Pessoa> bindAmigosPessoa(int id){
+		List<Integer> idAmigos = new ArrayList<>();
+		List<Pessoa> amigos = new ArrayList<>();
+		PreparedStatement smt = null;
+		ResultSet rs = null;
+		
+		try {
+			smt = connection.prepareStatement("Select id_amigo from amigoDe where id_pessoa = ?");
+			smt.setInt(1, id);
+			
+			rs = smt.executeQuery();
+			
+			while(rs.next()){
+				idAmigos.add(rs.getInt("id_amigo"));
+			}
+			
+			for(int i: idAmigos){
+				Pessoa pessoa = new Pessoa();
+				pessoa = buscarPessoa(id);
+				amigos.add(pessoa);
+			}
+			
+			return amigos;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return amigos;
+		
+		
+	}
+	public Pessoa buscarPessoa(int id){
+		PreparedStatement smt = null;
+		ResultSet rs = null;
+		try {
+			smt = connection.prepareStatement("select * from pessoa where id = ?");
+			smt.setInt(1, id);
+			rs = smt.executeQuery();
+			if(rs.first()){
+				Pessoa pessoa = bindPessoa(rs);
+				return pessoa;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			closeOpenResources(smt);
+		}
+		
+		return null;
+	}
+	
+
+	
 	
 	private Pessoa bindPessoa(ResultSet rs) throws SQLException {
 		Pessoa pessoa = new Pessoa();
