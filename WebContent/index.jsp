@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +50,8 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
           <li><a href="/Qask/amigos.jsp">Amigos</a></li>
 
-          <li><a href="/Qask/configuracao.jsp">Configuraçao</a></li>
+          <li><a href="/Qask/configuracao.jsp">ConfiguraÃ§ao</a></li>
+          <li><a href="#">Sair</a></li>
         </ul>
       </div>
     </div>
@@ -60,8 +64,18 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
     <div class="well well-sm">
     <h2>Respostas</h2>  
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed nisi elementum arcu rhoncus ornare. Mauris et placerat nulla. Nunc convallis iaculis urna. In semper, nisi ac dapibus rhoncus, magna arcu fermentum purus, vel cursus nulla diam et augue. Vestibulum feugiat tristique velit, at rutrum ipsum placerat et. Duis vitae dolor ut neque consequat consequat. Fusce at dui leo. Quisque eleifend interdum metus vitae maximus. Donec vestibulum mattis porttitor. Vivamus eget eros at ante tincidunt feugiat. Curabitur a scelerisque metus. Cras congue justo in odio vestibulum iaculis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    </div>
+    <c:choose>
+    	<c:when test="${not empty perguntas}">
+	    	<c:forEach var="pergunta" items="${perguntas}">
+				<div>
+					<p>${pergunta.conteudo}</p>
+				</div>
+			</c:forEach>
+	    </c:when>
+	    <c:otherwise>
+	    	não há perguntas
+	    </c:otherwise>
+    </c:choose>
 
 
 

@@ -32,7 +32,30 @@ public class RespostaDAO {
 		return resposta;
 	}
 	
-	
+	public List<Resposta> respostaDeUmUsuario(Pessoa pessoa){ 
+		List<Resposta> all = new ArrayList<Resposta>();
+		PreparedStatement smt = null;
+		ResultSet rs = null;
+		
+		try {
+			smt = connection.prepareStatement("Select *from resposta  where id_criador = ?");
+			smt.setInt(1, pessoa.getId());
+			rs = smt.executeQuery();
+			while(rs.next()){
+				Resposta resposta = bindResposta(rs);
+				all.add(resposta);
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			closeOpenResources(rs, smt);
+		}
+		
+		return all;
+	}
 	 
 	public List<Resposta> getAll() throws SQLException{
 		List<Resposta> all = new ArrayList<Resposta>();
