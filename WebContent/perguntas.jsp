@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +50,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
           <li><a href="/Qask/amigos.jsp">Amigos</a></li>
 
-          <li><a href="/Qask/configuracao.jsp">Configuraçao</a></li>
+          <li><a href="/Qask/configuracao.jsp">ConfiguraÃ§ao</a></li>
         </ul>
       </div>
     </div>
@@ -60,22 +63,23 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
     <div class="well well-sm">
     <h2>Perguntas</h2>  
-      <div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean cursus ullamcorper eros, a gravida enim congue eu. Nullam eu hendrerit enim. Ut nec dolor eget justo dignissim euismod id vel au?</p>
-        <a href="/Qask/respostasPerguntas.jsp" class="btn btn-primary " >Responder</a>
-        <a href="#" class="btn btn-danger " >Apagar</a>
-      </div>
-      <div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean cursus ullamcorper eros, a gravida enim congue eu. Nullam eu hendrerit enim. Ut nec dolor eget justo dignissim euismod id vel au?</p>
-        <a href="/Qask/respostasPerguntas.jsp" class="btn btn-primary " >Responder</a>
-        <a href="#" class="btn btn-danger " >Apagar</a>
-      </div>
-      <div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean cursus ullamcorper eros, a gravida enim congue eu. Nullam eu hendrerit enim. Ut nec dolor eget justo dignissim euismod id vel au?</p>
-        <a href="/Qask/respostasPerguntas.jsp" class="btn btn-primary " >Responder</a>
-        <a href="#" class="btn btn-danger " >Apagar</a>
-      </div>
-
+    <c:choose>
+    	<c:when test="${not empty perguntas}">
+	    	<c:forEach var="pergunta" items="${perguntas}">
+				<div>
+					<p>${pergunta.conteudo}</p>
+	        		<a href="/Qask/respostasPerguntas.jsp" class="btn btn-primary " >Responder</a>
+	        		<a href="#" class="btn btn-danger " >Apagar</a>
+      			</div>
+			</c:forEach>
+	    </c:when>
+	    <c:otherwise>
+	    	não há perguntas
+	    </c:otherwise>
+    </c:choose>
+      
+    
+      
 
 
   </div>
