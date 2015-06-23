@@ -37,7 +37,7 @@ public class listarRespostas extends HttpServlet{
 		listaPerguntas = perguntaDAO.pegarPerguntasDePessoa(pessoa);
 		//ainda acho q n é esse
 		
-		req.setAttribute("perguntas", listaPerguntas);
+		req.setAttribute("respostas", listaPerguntas);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
 		rd.forward(req, resp);
