@@ -38,7 +38,7 @@ public class UpdateController extends HttpServlet {
 				
 				try {
 					dao.update(pessoa);
-					req.getRequestDispatcher("index.jsp").forward(req, resp);
+					req.getRequestDispatcher("listarRespostas").forward(req, resp);
 					
 				} catch (SQLException e) {} catch (ServletException e) {
 					// TODO Auto-generated catch block
@@ -58,9 +58,9 @@ public class UpdateController extends HttpServlet {
 		private boolean isValid(HttpServletRequest req, Pessoa pessoa, List<String> erros) {
 			
 			int id = Integer.parseInt(req.getParameter("id"));
-			String nome = req.getParameter("username").trim();
+			String nome = req.getParameter("nome").trim();
 			String email = req.getParameter("email").trim();
-			String senha = req.getParameter("password").trim();
+			String senha = req.getParameter("senha").trim();
 			
 			
 			if (nome == null || senha == null || email == null || id <= 0) {

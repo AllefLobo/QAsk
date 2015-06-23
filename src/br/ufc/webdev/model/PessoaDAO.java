@@ -152,7 +152,7 @@ public class PessoaDAO {
 			stmt.setString(3, pessoa.getSenha());
 			stmt.setLong(4, pessoa.getId());
 
-			stmt.executeUpdate();
+			stmt.execute(sql);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
