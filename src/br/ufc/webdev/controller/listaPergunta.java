@@ -17,8 +17,8 @@ import br.ufc.webdev.model.PerguntaDAO;
 import br.ufc.webdev.model.Pessoa;
 
 import com.mysql.jdbc.Connection;
-@WebServlet(urlPatterns={"/teste "})
-public class listRespostas extends HttpServlet{
+@WebServlet(urlPatterns={"/listaPergunta "})
+public class listaPergunta extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {

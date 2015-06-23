@@ -29,7 +29,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
         <ul class="nav navbar-nav navbar-right">
           <li ><a href="listarRespostas">Home</a></li>
 
-          <li ><a href="teste">Perguntas</a></li>
+          <li ><a href="listaPergunta">Perguntas</a></li>
 
           <li >
             <a href="/Qask/perfil.jsp"">Perfil</a>

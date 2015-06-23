@@ -32,7 +32,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
         <ul class="nav navbar-nav navbar-right">
           <li ><a href="listarRespostas">Home</a></li>
 
-          <li class="active"><a href="/Qask/perguntas.jsp">Perguntas</a></li>
+          <li class="active"><a href="listaPergunta">Perguntas</a></li>
 
           <li class="dropdown">
             <a href="/Qask/perfil.jsp" >Perfil</a>
