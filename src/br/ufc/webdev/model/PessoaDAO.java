@@ -7,12 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
-
-
-
 public class PessoaDAO {
 
 	private static final String PESSOA_ID = "id";
@@ -33,6 +27,25 @@ public class PessoaDAO {
 		pessoa.setEmail(rs.getString(PESSOA_EMAIL));
 		pessoa.setSenha(rs.getString(PESSOA_SENHA));
 		return pessoa;
+	}
+	
+	public Pessoa findById(Long id) throws SQLException {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			stmt = connection.prepareStatement("Select * from produtos where id = ?");
+			stmt.setLong(1, id);
+			rs = stmt.executeQuery();
+			if(rs.first()){
+				Pessoa pessoa = bindPessoa(rs);
+				return pessoa;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			closeOpenResources(rs, stmt);
+		}
+		return null;
 	}
 	
 	

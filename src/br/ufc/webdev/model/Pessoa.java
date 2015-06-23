@@ -9,6 +9,7 @@ public class Pessoa {
 	private String senha;
 	private List<Pergunta> perguntas;
 	private List<Resposta> respostas;
+	private List<Pessoa> amigos;
 	
 	public int getId() {
 		return id;
@@ -45,6 +46,12 @@ public class Pessoa {
 	}
 	public void setRespostas(List<Resposta> respostas) {
 		this.respostas = respostas;
+	}
+	public List<Pessoa> getAmigos() {
+		return amigos;
+	}
+	public void setAmigos(List<Pessoa> amigos) {
+		this.amigos = amigos;
 	}
 	
 
