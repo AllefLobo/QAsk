@@ -64,12 +64,12 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
     <div class="well well-sm">
     <h2>Perguntas</h2>  
-    <c:choose>
+   <c:choose>
     	<c:when test="${not empty perguntas}">
 	    	<c:forEach var="pergunta" items="${perguntas}">
 				<div>
 					<p>${pergunta.conteudo}</p>
-	        		<a href="/Qask/respostasPerguntas.jsp" class="btn btn-primary " >Responder</a>
+	        		<a href="/Qask/pergunta?id_pergunta=${pergunta.id}" class="btn btn-primary " >Responder</a>
 	        		<a href="#" class="btn btn-danger " >Apagar</a>
       			</div>
 			</c:forEach>
