@@ -65,10 +65,10 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
     <div class="well well-sm">
     <h2>Respostas</h2>  
     <c:choose>
-    	<c:when test="${not empty perguntas}">
-	    	<c:forEach var="pergunta" items="${perguntas}">
+    	<c:when test="${not empty respostas}">
+	    	<c:forEach var="resposta" items="${respostas}">
 				<div>
-					<p>${pergunta.conteudo}</p>
+					<p>${resposta.conteudo}</p>
 				</div>
 			</c:forEach>
 	    </c:when>

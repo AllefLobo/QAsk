@@ -98,29 +98,22 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
 
 
-      <form>
+      <form method = "post" action="perfilController">
         <h2>Fa&ccedila-me uma Pergunta</h2> 
-        <textarea class="campoTexto"></textarea>
+        <textarea class="campoTexto" id="pergunta"></textarea>
         </br>
         <input type='submit' class="btn btn-primary" value='Perguntar'>
         
       </form>
       <h2>Minhas respostas</h2>
-      <div>
-        <p><b>Integer placerat pellentesque aliquam. Duis lacinia varius ullamcorper. Fusce rutrum nec dolor nec fermentum. Nulla eget semper lacus, eget sodales mauris?</b></p>
-        <p>Restata fica aqui</p>
+        <c:forEach var="resposta" items="${respostas}">
+		<div>
+        <p><b>Pergunta?</b></p>
+        <p>${resposta.conteudo }</p>
         <input type='submit' class="btn btn-danger" value='Excluir'>
-      </div>
-      <div>
-        <p><b>Integer placerat pellentesque aliquam. Duis lacinia varius ullamcorper. Fusce rutrum nec dolor nec fermentum. Nulla eget semper lacus, eget sodales mauris?</b></p>
-        <p>Restata fica aqui</p>
-        <input type='submit' class="btn btn-danger" value='Excluir'>
-      </div>
-      <div>
-        <p><b>Integer placerat pellentesque aliquam. Duis lacinia varius ullamcorper. Fusce rutrum nec dolor nec fermentum. Nulla eget semper lacus, eget sodales mauris?</b></p>
-        <p>Restata fica aqui</p>
-        <input type='submit' class="btn btn-danger" value='Excluir'>
-      </div>
+      	</div>
+		</c:forEach>
+ 
     </div>
 
   </div>

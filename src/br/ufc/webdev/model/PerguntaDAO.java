@@ -52,14 +52,14 @@ public class PerguntaDAO {
 		return all;
 	}
 	
-	public void addPergunta(Pessoa remetente, Pessoa destinatario,String pergunta){
+	public void addPergunta(Pergunta pergunta){
 		PreparedStatement smt;
 		String sql = "insert into pergunta(id_remetente,id_destino,conteudo_pergunta) values(?,?,?)";
 		try {
 			smt = connection.prepareStatement(sql);
-			smt.setInt(1, remetente.getId());
-			smt.setInt(2, destinatario.getId());
-			smt.setString(3, pergunta);
+			smt.setInt(1, pergunta.getIdRemetente());
+			smt.setInt(2, pergunta.getIdDestinatario());
+			smt.setString(3, pergunta.getConteudo());
 			smt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
