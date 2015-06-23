@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PessoaDAO {
 
-	private static final String PESSOA_ID = "id";
+	private static final String PESSOA_ID = "id_pessoa";
 	private static final String PESSOA_NOME = "nome";
 	private static final String PESSOA_EMAIL = "email";
 	private static final String PESSOA_SENHA = "senha";
@@ -27,6 +27,27 @@ public class PessoaDAO {
 		pessoa.setEmail(rs.getString(PESSOA_EMAIL));
 		pessoa.setSenha(rs.getString(PESSOA_SENHA));
 		return pessoa;
+	}
+	
+	public Pessoa buscarPessoa(String nome){
+		PreparedStatement smt = null;
+		ResultSet rs = null;
+		try {
+			smt = connection.prepareStatement("select * from pessoa where nome = ?");
+			smt.setString(1, nome);
+			rs = smt.executeQuery();
+			if(rs.first()){
+				Pessoa pessoa = bindPessoa(rs);
+				return pessoa;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			closeOpenResources(smt);
+		}
+		
+		return null;
 	}
 	
 	public Pessoa findById(int id) throws SQLException {

@@ -42,9 +42,12 @@ public class AuthenticationController extends HttpServlet{
 				
 				System.out.println(dao.authenticate(pessoa));
 				HttpSession session = req.getSession();
+				pessoa = dao.buscarPessoa(pessoa.getNome());
+				
+				System.out.println("asdfasdfasdf"+pessoa.getNome());
 				session.setAttribute("user", pessoa);
 				
-				req.getRequestDispatcher("index.jsp").forward(req, resp);
+				req.getRequestDispatcher("/listarRespostas").forward(req, resp);
 						
 			}else{
 				req.getRequestDispatcher("login.jsp").forward(req, resp);;

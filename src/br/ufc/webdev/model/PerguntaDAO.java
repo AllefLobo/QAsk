@@ -9,10 +9,10 @@ import java.util.List;
 import com.mysql.jdbc.Connection;
 
 public class PerguntaDAO {
-	private static final String PERGUNTA_ID = "id";
-	private static final String PERGUNTA_IDREMETENTE = "idRemetente";
-	private static final String PERGUNTA_IDDESTINATARIO = "idDestinatario";
-	private static final String PERGUNTA_CONTEUDO = "conteudo";
+	private static final String PERGUNTA_ID = "id_pergunta";
+	private static final String PERGUNTA_IDREMETENTE = "id_remetente";
+	private static final String PERGUNTA_IDDESTINATARIO = "id_destino";
+	private static final String PERGUNTA_CONTEUDO = "conteudo_pergunta";
 	
 	private Connection connection;
 	
@@ -35,7 +35,7 @@ public class PerguntaDAO {
 		ResultSet rs = null;
 		
 		try {
-			smt = connection.prepareStatement("Select *from pergunta pt where pt.id_destino = ?");
+			smt = connection.prepareStatement("Select * from pergunta pt where pt.id_destino = ?");
 			smt.setInt(1, pessoa.getId());
 			rs = smt.executeQuery();
 			while(rs.next()){
@@ -69,7 +69,7 @@ public class PerguntaDAO {
 	//ou passo o objetoPergunta
 	public void removerPergunta(int idPergunta){
 		PreparedStatement smt;
-		String sql = "DELETE FROM pergunta WHERE id=?";
+		String sql = "DELETE FROM pergunta WHERE id_pergunta=?";
 		try {
 			smt = connection.prepareStatement(sql);
 			smt.setInt(1, idPergunta);
