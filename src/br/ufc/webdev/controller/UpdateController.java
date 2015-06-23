@@ -19,7 +19,7 @@ import com.mysql.jdbc.Connection;
 /**
  * Servlet implementation class updateController
  */
-@WebServlet("/EditarPessoa")
+@WebServlet("/atualizarPessoa")
 public class UpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
