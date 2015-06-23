@@ -31,11 +31,13 @@ public class AuthenticationController extends HttpServlet{
 		
 		String nome = req.getParameter("username");
 		String senha = req.getParameter("password");
+		String email = req.getParameter("email");
 		
 		Pessoa pessoa = new Pessoa();
 		
 		pessoa.setNome(nome);
 		pessoa.setSenha(senha);
+		pessoa.setEmail(email);
 		
 		try {
 			if( dao.authenticate(pessoa) ){
