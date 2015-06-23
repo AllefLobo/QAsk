@@ -1,7 +1,6 @@
 package br.ufc.webdev.filter;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 import javax.servlet.Filter;
@@ -11,6 +10,8 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+
+import com.mysql.jdbc.Connection;
 
 import br.ufc.webdev.model.ConnectionFactory;
 
@@ -26,7 +27,7 @@ public class DatabaseConnectionFilter implements Filter {
 	public void doFilter(ServletRequest req, ServletResponse resp,
 			FilterChain chain) throws IOException, ServletException {
 
-		Connection connection = new ConnectionFactory().getConnection();
+		Connection connection = (Connection) new ConnectionFactory().getConnection();
 		req.setAttribute("connection", connection);
 		chain.doFilter(req, resp);
 		try {connection.close();} catch (SQLException e) {}

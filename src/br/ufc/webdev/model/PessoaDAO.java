@@ -1,12 +1,15 @@
 package br.ufc.webdev.model;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+
+
+
 
 
 
@@ -39,7 +42,7 @@ public class PessoaDAO {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;	
 		try {
-			stmt =	connection.prepareStatement("Select * from pessoa");
+			stmt =	(PreparedStatement) connection.prepareStatement("Select * from pessoa");
 			rs = stmt.executeQuery();
 			while(rs.next()){
 				Pessoa pessoa = bindPessoa(rs);
@@ -58,7 +61,7 @@ public class PessoaDAO {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			stmt = connection.prepareStatement("Select * from pessoa where nome = ? and senha = ?");
+			stmt = (PreparedStatement) connection.prepareStatement("Select * from pessoa where nome = ? and senha = ?");
 			stmt.setString(1, pessoa.getNome());
 			stmt.setString(2, pessoa.getSenha());
 			rs = stmt.executeQuery();
@@ -75,12 +78,12 @@ public class PessoaDAO {
 		PreparedStatement stmt = null;
 		String sql = "insert into pessoa(nome, email, senha) values (?,?,?)";
 		try {
-			stmt = connection.prepareStatement(sql);
+			stmt = (PreparedStatement) connection.prepareStatement(sql);
 
 			stmt.setString(1, pessoa.getNome());
 			stmt.setString(2, pessoa.getEmail());
 			stmt.setString(3, pessoa.getSenha());
-System.out.println(pessoa.getNome());
+System.out.println(pessoa.getEmail());
 			stmt.execute();
 
 		} catch (SQLException e) {
@@ -94,7 +97,7 @@ System.out.println(pessoa.getNome());
 		PreparedStatement stmt = null;
 		String sql = "delete from pessoa where id_pessoa = ?";
 		try {
-			stmt = connection.prepareStatement(sql);
+			stmt = (PreparedStatement) connection.prepareStatement(sql);
 			stmt.setLong(1, produto.getId());
 			stmt.execute();
 		} catch (SQLException e) {
@@ -109,7 +112,7 @@ System.out.println(pessoa.getNome());
 		PreparedStatement stmt = null;
 		String sql = "update pessoa set nome = ?, email = ?, senha = ? where id_pessoa = ?";
 		try {
-			stmt = connection.prepareStatement(sql);
+			stmt = (PreparedStatement) connection.prepareStatement(sql);
 			stmt.setString(1, pessoa.getNome());
 			stmt.setString(2, pessoa.getEmail());
 			stmt.setString(3, pessoa.getSenha());

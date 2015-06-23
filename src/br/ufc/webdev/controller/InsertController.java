@@ -1,7 +1,6 @@
 package br.ufc.webdev.controller;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +10,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.mysql.jdbc.Connection;
 
 import br.ufc.webdev.model.Pessoa;
 import br.ufc.webdev.model.PessoaDAO;
@@ -33,8 +34,9 @@ public class InsertController extends HttpServlet{
 			PessoaDAO dao = new PessoaDAO(connection);
 			try {
 				dao.insert(pessoa);
+				resp.sendRedirect("index.jsp");
 			} catch (SQLException e) {}
-			resp.sendRedirect("index.jsp");
+			
 
 		} else {
 			req.setAttribute("erros", erros);
