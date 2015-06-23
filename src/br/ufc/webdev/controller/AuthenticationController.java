@@ -45,10 +45,10 @@ public class AuthenticationController extends HttpServlet{
 				session.setAttribute("user", pessoa);
 				
 				req.getRequestDispatcher("index.jsp").forward(req, resp);
-				return;			
+						
 			}else{
 				req.getRequestDispatcher("login.jsp").forward(req, resp);;
-				return;
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
