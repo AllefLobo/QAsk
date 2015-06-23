@@ -31,22 +31,18 @@ public class AuthenticationController extends HttpServlet{
 		
 		String nome = req.getParameter("username");
 		String senha = req.getParameter("password");
-		String email = req.getParameter("email");
 		
 		Pessoa pessoa = new Pessoa();
 		
 		pessoa.setNome(nome);
 		pessoa.setSenha(senha);
-		pessoa.setEmail(email);
-		
+
 		try {
 			if( dao.authenticate(pessoa) ){
 				
 				System.out.println(dao.authenticate(pessoa));
 				HttpSession session = req.getSession();
 				pessoa = dao.buscarPessoa(pessoa.getNome());
-				
-				System.out.println("asdfasdfasdf"+pessoa.getNome());
 				session.setAttribute("user", pessoa);
 				
 				req.getRequestDispatcher("/listarRespostas").forward(req, resp);
