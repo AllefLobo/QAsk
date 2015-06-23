@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PessoaDAO {
+public class AmigoDAO {
 
 	private static final String PESSOA_ID = "id";
 	private static final String PESSOA_NOME = "nome";
@@ -15,12 +15,12 @@ public class PessoaDAO {
 	private static final String PESSOA_SENHA = "senha";
 	
 	private Connection connection;
-	
-	public PessoaDAO(Connection connection){
+	 
+	public AmigoDAO(Connection connection){
 		this.connection = connection;
 	}
 	
-	private Pessoa bindPessoa(ResultSet rs) throws SQLException {
+	private Pessoa bindAmigo(ResultSet rs) throws SQLException {
 		Pessoa pessoa = new Pessoa();
 		pessoa.setId(rs.getInt(PESSOA_ID));
 		pessoa.setNome(rs.getString(PESSOA_NOME));
@@ -29,45 +29,27 @@ public class PessoaDAO {
 		return pessoa;
 	}
 	
-	public Pessoa findById(int id) throws SQLException {
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-		try {
-			stmt = connection.prepareStatement("select * from pessoa where id_pessoa = ?");
-			stmt.setInt(1, id);
-			rs = stmt.executeQuery();
-			if(rs.first()){
-				Pessoa pessoa = bindPessoa(rs);
-				return pessoa;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally{
-			closeOpenResources(rs, stmt);
-		}
-		return null;
-	}
-	
 	
 	 
-	public List<Pessoa> getAll() throws SQLException{
-		List<Pessoa> all = new ArrayList<Pessoa>();
+	public List<Pessoa> getAll(int id) throws SQLException{
+		List<Pessoa> amigos = new ArrayList<Pessoa>();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;	
 		try {
-			stmt =	connection.prepareStatement("Select * from pessoa");
+			stmt =	connection.prepareStatement("select * from amigoDe where id_pessoa = ? ");
+			stmt.setInt(1, id);
 			rs = stmt.executeQuery();
+			PessoaDAO dao = new PessoaDAO(connection);
 			while(rs.next()){
-				Pessoa pessoa = bindPessoa(rs);
-				all.add(pessoa);
+				Pessoa amigo = dao.findById(rs.getInt("id_amigo"));
+				amigos.add(amigo);
 			}
-			
+			return amigos;
 		} catch (SQLException e) {
-			throw new RuntimeException("Nao foi possivel listar as pessoas");
+			throw new RuntimeException("Nao foi possivel listar os amigos");
 		} finally {
 			closeOpenResources(rs, stmt);
 		}
-		return all;
 	}
 
 	public boolean authenticate( Pessoa pessoa ) throws SQLException {
@@ -120,27 +102,7 @@ public class PessoaDAO {
 		}
 	}
 	
-	public void update(Pessoa pessoa) throws SQLException {
 
-		PreparedStatement stmt = null;
-		String sql = "update pessoa set nome = ?, email = ?, senha = ? where id_pessoa = ?";
-		try {
-			stmt = connection.prepareStatement(sql);
-			stmt.setString(1, pessoa.getNome());
-			stmt.setString(2, pessoa.getEmail());
-			stmt.setString(3, pessoa.getSenha());
-			stmt.setLong(4, pessoa.getId());
-
-			stmt.executeUpdate();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException("Nao foi possivel alterar pessoa");
-		} finally {
-				closeOpenResources(stmt);
-		}
-
-	}
 	
 	private void closeOpenResources(PreparedStatement stmt){
 		closeOpenResources(null, stmt);

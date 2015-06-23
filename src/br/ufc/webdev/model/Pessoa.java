@@ -7,9 +7,7 @@ public class Pessoa {
 	private String nome;
 	private String email;
 	private String senha;
-	private List<Pergunta> perguntas;
-	private List<Resposta> respostas;
-	private List<Pessoa> amigos;
+
 	
 	public int getId() {
 		return id;
@@ -35,24 +33,7 @@ public class Pessoa {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public List<Pergunta> getPerguntas() {
-		return perguntas;
-	}
-	public void setPerguntas(List<Pergunta> perguntas) {
-		this.perguntas = perguntas;
-	}
-	public List<Resposta> getRespostas() {
-		return respostas;
-	}
-	public void setRespostas(List<Resposta> respostas) {
-		this.respostas = respostas;
-	}
-	public List<Pessoa> getAmigos() {
-		return amigos;
-	}
-	public void setAmigos(List<Pessoa> amigos) {
-		this.amigos = amigos;
-	}
+
 	
 
 }
