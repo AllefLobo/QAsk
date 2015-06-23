@@ -51,6 +51,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
           <li><a href="/Qask/amigos.jsp">Amigos</a></li>
 
           <li><a href="/Qask/configuracao.jsp">ConfiguraÃ§ao</a></li>
+          <li><a href="sair">Sair</a></li>
         </ul>
       </div>
     </div>
@@ -77,6 +78,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 	    	não há perguntas
 	    </c:otherwise>
     </c:choose>
+     </div>
       
     
       
