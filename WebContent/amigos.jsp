@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +50,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
           <li class="active"><a href="/Qask/amigos.jsp">Amigos</a></li>
 
-          <li><a href="/Qask/configuracao.jsp">Configuraçao</a></li>
+          <li><a href="/Qask/configuracao.jsp">ConfiguraÃ§ao</a></li>
           <li><a href="sair">Sair</a></li>
         </ul>
       </div>
@@ -62,42 +65,23 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
     <div class="well well-sm">
       <h2>Amigos</h2>
 
-
-      <div class="amigo">
-          <img src="http://www.gravatar.com/avatar/2ab7b2009d27ec37bffee791819a090c?s=100&d=mm&r=g" alt="Karan Singh Sisodia" title="Karan Singh Sisodia" class="img-circle">
-          <p><b>Nome:</b></p>
-          <a href="#" > Teste1234</a>
-          <input type='submit' class="btn btn-danger" value='unFollow'>
-
-      </div>
-      
-      <div class="teste">
-        <img src="http://www.gravatar.com/avatar/2ab7b2009d27ec37bffee791819a090c?s=100&d=mm&r=g" alt="Karan Singh Sisodia" title="Karan ingh Sisodia" class="img-circle">
-        <p><b>Nome:</b></p>
-        <a href="#">Teste 1234</a>
-        <input type='submit' class="btn btn-danger" value='unFollow'>
-      </div>
-
-      <div class="amigo">
-          <img src="http://www.gravatar.com/avatar/2ab7b2009d27ec37bffee791819a090c?s=100&d=mm&r=g" alt="Karan Singh Sisodia" title="Karan Singh Sisodia" class="img-circle">
-          <p><b>Nome:</b></p>
-          <a href="#" > Teste1234</a>
-          <input type='submit' class="btn btn-danger" value='unFollow'>
-
-      </div>
-      <div class="teste">
-        <img src="http://www.gravatar.com/avatar/2ab7b2009d27ec37bffee791819a090c?s=100&d=mm&r=g" alt="Karan Singh Sisodia" title="Karan ingh Sisodia" class="img-circle">
-        <p><b>Nome:</b></p>
-        <a href="#">Teste 1234</a>
-        <input type='submit' class="btn btn-danger" value='unFollow'>
-      </div>
-
-
-
-
-
-
-
+	<c:choose>
+		<c:when test="${not empty listaAmigos}">
+			
+			<c:forEach var="pessoa" items="${listaAmigos}">
+				  <div class="amigo">
+		          		<img src="http://www.gravatar.com/avatar/2ab7b2009d27ec37bffee791819a090c?s=100&d=mm&r=g" alt="Karan Singh Sisodia" title="Karan Singh Sisodia" class="img-circle">
+		          		<p><b>pessoa.nome</b></p>
+		          		<a href="#" > desfazer amizade</a>
+		          		<a href="desfazerAmizade" class="btn btn-danger " >Desfazer Amizade</a>
+		          </div>
+			</c:forEach>
+		</c:when>
+		<c:otherwise>
+			<h3> Nenhum amigo</h3>
+		</c:otherwise>
+		
+	</c:choose>
     </div>
 
   </div>
