@@ -51,4 +51,32 @@ public class PerguntaDAO {
 		
 		return all;
 	}
+	
+	public void addPergunta(Pessoa remetente, Pessoa destinatario,String pergunta){
+		PreparedStatement smt;
+		String sql = "insert into pergunta(id_remetente,id_destino,conteudo_pergunta) values(?,?,?)";
+		try {
+			smt = connection.prepareStatement(sql);
+			smt.setInt(1, remetente.getId());
+			smt.setInt(2, destinatario.getId());
+			smt.setString(3, pergunta);
+			smt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	//ou passo o objetoPergunta
+	public void removerPergunta(int idPergunta){
+		PreparedStatement smt;
+		String sql = "DELETE FROM pergunta WHERE id=?";
+		try {
+			smt = connection.prepareStatement(sql);
+			smt.setInt(1, idPergunta);
+			smt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
