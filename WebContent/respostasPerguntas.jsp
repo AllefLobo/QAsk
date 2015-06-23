@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +30,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
       <div class="collapse navbar-collapse navHeaderCollapse">
         <ul class="nav navbar-nav navbar-right">
-          <li ><a href="listaResposta">Home</a></li>
+          <li ><a href="listaRespostas">Home</a></li>
 
           <li class="active"><a href="/Qask/perguntas.jsp">Perguntas</a></li>
 
@@ -47,7 +50,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
           <li><a href="/Qask/amigos.jsp">Amigos</a></li>
 
-          <li><a href="/Qask/configuracao.jsp">Configuraçao</a></li>
+          <li><a href="/Qask/configuracao.jsp">ConfiguraÃ§ao</a></li>
           <li><a href="sair">Sair</a></li>
         </ul>
       </div>
@@ -61,8 +64,8 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
     <div class="well well-sm">
     <h2>Perguntas</h2>  
-      <form method="" action="">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean cursus ullamcorper eros, a gravida enim congue eu. Nullam eu hendrerit enim. Ut nec dolor eget justo dignissim euismod id vel au?</p>
+      <form action="">
+        <p><b>${perguntaResposta.conteudo}</b></p>
         <textarea class="campoTexto"></textarea>
         </br>
         <input type='submit' class="btn btn-primary" value='Postar'>

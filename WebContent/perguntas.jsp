@@ -69,7 +69,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 	    	<c:forEach var="pergunta" items="${perguntas}">
 				<div>
 					<p>${pergunta.conteudo}</p>
-	        		<a href="/Qask/pergunta?id_pergunta=${pergunta.id}" class="btn btn-primary " >Responder</a>
+	        		<a href="perguntaController?id_pergunta=${pergunta.id}" class="btn btn-primary " >Responder</a>
 	        		<a href="#" class="btn btn-danger " >Apagar</a>
       			</div>
 			</c:forEach>

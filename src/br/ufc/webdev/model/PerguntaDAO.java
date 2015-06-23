@@ -79,4 +79,24 @@ public class PerguntaDAO {
 			e.printStackTrace();
 		}
 	}
+	public Pergunta buscarPerguntaPorId(int id){
+		PreparedStatement smt = null;
+		ResultSet rs = null;
+		String sql = "select * from pergunta where id_pergunta = ?";
+		try {
+			smt = connection.prepareStatement("select * from pergunta where id_pergunta = ?");
+			smt.setInt(1, id);
+			rs = smt.executeQuery();
+			
+			if(rs.first()){
+				Pergunta pergunta = bindPergunta(rs);
+				return pergunta;
+			}	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 }
