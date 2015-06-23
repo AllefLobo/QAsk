@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 @WebFilter("/*")
 public class AuthenticationFilter implements Filter {
-//@WebFilter("/*")
+
 	@Override
 	public void destroy() {
 
@@ -26,18 +26,18 @@ public class AuthenticationFilter implements Filter {
 			FilterChain chain) throws IOException, ServletException {		
 			
 		
-//		HttpSession session = ((HttpServletRequest) req).getSession(false);
-//		
-//		String path = ((HttpServletRequest) req).getRequestURI();
-//		
-//		if( path.contains("login.jsp") || path.contains("autentica") ){
-//			chain.doFilter(req, resp);
-//		}else if( session != null && session.getAttribute("user") != null ){
+		HttpSession session = ((HttpServletRequest) req).getSession(false);
+		
+		String path = ((HttpServletRequest) req).getRequestURI();
+		
+		if( path.contains("login.jsp") || path.contains("autentica") ){
 			chain.doFilter(req, resp);
-//		}else{
-//			((HttpServletResponse)resp).sendRedirect("login.jsp");
-//			return;
-//		}
+		}else if( session != null && session.getAttribute("user") != null ){
+			chain.doFilter(req, resp);
+		}else{
+			((HttpServletResponse)resp).sendRedirect("login.jsp");
+			return;
+		}
 
 			
 		
