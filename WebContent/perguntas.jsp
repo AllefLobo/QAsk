@@ -51,6 +51,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
           <li><a href="/Qask/amigos.jsp">Amigos</a></li>
 
           <li><a href="/Qask/configuracao.jsp">ConfiguraÃ§ao</a></li>
+          <li><a href="sair">Sair</a></li>
         </ul>
       </div>
     </div>
@@ -64,8 +65,8 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
     <div class="well well-sm">
     <h2>Perguntas</h2>  
     <c:choose>
-    	<c:when test="${not empty perg}">
-	    	<c:forEach var="pergunta" items="${perg}">
+    	<c:when test="${not empty perguntas}">
+	    	<c:forEach var="pergunta" items="${perguntas}">
 				<div>
 					<p>${pergunta.conteudo}</p>
 	        		<a href="/Qask/respostasPerguntas.jsp" class="btn btn-primary " >Responder</a>

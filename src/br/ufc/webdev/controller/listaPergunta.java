@@ -17,7 +17,7 @@ import br.ufc.webdev.model.PerguntaDAO;
 import br.ufc.webdev.model.Pessoa;
 
 import com.mysql.jdbc.Connection;
-@WebServlet(urlPatterns={"/listaPergunta "})
+@WebServlet(urlPatterns={"/listaPergunta"})
 public class listaPergunta extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
@@ -30,11 +30,12 @@ public class listaPergunta extends HttpServlet{
 		HttpSession session = ((HttpServletRequest) req).getSession(true);
 		
 		Pessoa pessoa = (Pessoa) session.getAttribute("user");
-		
+
 		listaPerguntas = perguntaDAO.pegarPerguntasDePessoa(pessoa);
+
 		//ainda acho q n é esse
 		
-		req.setAttribute("perg", listaPerguntas);
+		req.setAttribute("perguntas", listaPerguntas);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("perguntas.jsp");
 		rd.forward(req, resp);

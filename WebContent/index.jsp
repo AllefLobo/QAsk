@@ -68,7 +68,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
     	<c:when test="${not empty respostas}">
 	    	<c:forEach var="resposta" items="${respostas}">
 				<div>
-					<p>${respostas.conteudo}</p>
+					<p>${resposta.conteudo}</p>
 				</div>
 			</c:forEach>
 	    </c:when>
