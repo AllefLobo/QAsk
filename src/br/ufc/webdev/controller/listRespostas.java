@@ -17,7 +17,7 @@ import br.ufc.webdev.model.PerguntaDAO;
 import br.ufc.webdev.model.Pessoa;
 
 import com.mysql.jdbc.Connection;
-@WebServlet(urlPatterns={"listaPerguntas2"})
+@WebServlet(urlPatterns={"/teste "})
 public class listRespostas extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
@@ -34,9 +34,9 @@ public class listRespostas extends HttpServlet{
 		listaPerguntas = perguntaDAO.pegarPerguntasDePessoa(pessoa);
 		//ainda acho q n é esse
 		
-		req.setAttribute("perguntas", listaPerguntas);
+		req.setAttribute("perg", listaPerguntas);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("perguntas.jsp");
 		rd.forward(req, resp);
 	}
 }

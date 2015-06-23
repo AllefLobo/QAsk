@@ -64,8 +64,8 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
     <div class="well well-sm">
     <h2>Perguntas</h2>  
     <c:choose>
-    	<c:when test="${not empty perguntas}">
-	    	<c:forEach var="pergunta" items="${perguntas}">
+    	<c:when test="${not empty perg}">
+	    	<c:forEach var="pergunta" items="${perg}">
 				<div>
 					<p>${pergunta.conteudo}</p>
 	        		<a href="/Qask/respostasPerguntas.jsp" class="btn btn-primary " >Responder</a>
