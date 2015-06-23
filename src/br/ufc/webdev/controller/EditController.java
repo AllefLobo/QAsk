@@ -19,7 +19,7 @@ import br.ufc.webdev.model.PessoaDAO;
 public class EditController extends HttpServlet {
 	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		//"editar.jsp"
 		

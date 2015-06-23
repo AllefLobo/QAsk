@@ -24,7 +24,7 @@ public class UpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
   @Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		// TODO Auto-generated method stub
 	  
 	  
@@ -50,12 +50,7 @@ public class UpdateController extends HttpServlet {
 				
 			} else {
 				req.setAttribute("erros", erros);
-				///
-				///
-				///
-				///
-				///
-				//resp.sendRedirect("formEditar.jsp");
+				resp.sendRedirect("configuracao.jsp");
 			}
 			
 		}
