@@ -24,7 +24,7 @@ import br.ufc.webdev.model.RespostaDAO;
 @WebServlet(urlPatterns={"/listarRespostas"})
 public class listarRespostas extends HttpServlet{
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		Connection connection = (Connection) req.getAttribute("connection");
 		PerguntaDAO perguntaDAO = new PerguntaDAO(connection);
@@ -33,16 +33,15 @@ public class listarRespostas extends HttpServlet{
 		HttpSession session = ((HttpServletRequest) req).getSession(true);
 		
 		Pessoa pessoa = (Pessoa) session.getAttribute("user");
-		System.out.println("asdhfkjasfhlaksjdfh"+pessoa.getId());
 		
 		listaPerguntas = perguntaDAO.pegarPerguntasDePessoa(pessoa);
 		//ainda acho q n é esse
 		
 		req.setAttribute("perguntas", listaPerguntas);
 		
-		System.out.println("asdfhasdlfhaskdljfhlaksjdhflkashdflkajshdflkjsh");
 		RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
 		rd.forward(req, resp);
 		
 	}
+
 }
