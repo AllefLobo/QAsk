@@ -2,6 +2,20 @@ package br.ufc.webdev.model;
 
 public class Pergunta {
 	private int id;
+	private int idRemetente;
+	private int idDestinatario;
+	public int getIdRemetente() {
+		return idRemetente;
+	}
+	public void setIdRemetente(int idRemetente) {
+		this.idRemetente = idRemetente;
+	}
+	public int getIdDestinatario() {
+		return idDestinatario;
+	}
+	public void setIdDestinatario(int idDestinatario) {
+		this.idDestinatario = idDestinatario;
+	}
 	private String conteudo;
 	
 	public int getId() {
