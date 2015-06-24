@@ -5,6 +5,7 @@ public class Pergunta {
 	private int idRemetente;
 	private int idDestinatario;
 	private int idResposta;
+	private Resposta resposta;
 	public int getIdResposta() {
 		return idResposta;
 	}
@@ -36,6 +37,12 @@ public class Pergunta {
 	}
 	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
+	}
+	public Resposta getResposta() {
+		return resposta;
+	}
+	public void setResposta(Resposta resposta) {
+		this.resposta = resposta;
 	}
 	
 	
