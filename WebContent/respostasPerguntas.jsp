@@ -60,7 +60,13 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
   <div class="container">  
  
-
+	<div>
+		<form method="" action="" class="pesquisa">
+			<input type="text" values=""/>
+			<input type='submit' class="btn btn-primary" value='Pesquisar' name="pesquisar" id="pesquisa">
+		</form>
+	</div>
+	
 
     <div class="well well-sm">
     <h2>Perguntas</h2>  
