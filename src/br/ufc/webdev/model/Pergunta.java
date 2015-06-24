@@ -4,6 +4,13 @@ public class Pergunta {
 	private int id;
 	private int idRemetente;
 	private int idDestinatario;
+	private int idResposta;
+	public int getIdResposta() {
+		return idResposta;
+	}
+	public void setIdResposta(int idResposta) {
+		this.idResposta = idResposta;
+	}
 	public int getIdRemetente() {
 		return idRemetente;
 	}

@@ -24,7 +24,6 @@ public class perguntaController extends HttpServlet{
 		
 		int id = Integer.parseInt(req.getParameter("id_pergunta"));
 		
-		System.out.println("fasdfhasidfhasiudfh"+id);
 		Connection connection = (Connection) req.getAttribute("connection");
 		
 		PerguntaDAO dao = new PerguntaDAO(connection);

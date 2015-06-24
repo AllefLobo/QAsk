@@ -35,8 +35,12 @@ public class listarRespostas extends HttpServlet{
 		Pessoa pessoa = (Pessoa) session.getAttribute("user");
 		
 		listaPerguntas = perguntaDAO.pegarPerguntasDePessoa(pessoa);
-		//ainda acho q n é esse
 		
+		List<Pergunta> listPerguntasComResposta = new ArrayList<Pergunta>();
+		//ainda acho q n é esse
+		for(){
+			
+		}
 		req.setAttribute("respostas", listaPerguntas);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("index.jsp");

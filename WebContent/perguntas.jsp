@@ -25,7 +25,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
  
  <div class="container">
  
- <a href="/Qask/index.jsp"" class="navbar-brand">Qask </a> <button class="navbar-toggle"
+ <a href="listarRespostas"" class="navbar-brand">Qask </a> <button class="navbar-toggle"
       data-toggle="collapse" data-target=".navHeaderCollapse"></button>
 
       <div class="collapse navbar-collapse navHeaderCollapse">

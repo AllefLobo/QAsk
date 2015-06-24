@@ -64,12 +64,13 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
     <div class="well well-sm">
     <h2>Perguntas</h2>  
-      <form action="">
+      <form method="POST" action="respostaController">
         <p><b>${perguntaResposta.conteudo}</b></p>
-        <textarea class="campoTexto"></textarea>
+        <textarea class="campoTexto" name="resposta"></textarea>
         </br>
-        <input type='submit' class="btn btn-primary" value='Postar'>
-        <input type='submit' class="btn btn-danger" value='Cancelar'>
+        <input type='submit' class="btn btn-primary" value='Postar' name="postar">
+        <input type='submit' class="btn btn-danger" value='Cancelar'name="cancelar">
+        <input type="hidden"  value='${perguntaResposta.id}'name="id_pergunta">
       </form>
     </div>
 
