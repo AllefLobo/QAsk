@@ -28,6 +28,7 @@ public class listarRespostas extends HttpServlet{
 			throws ServletException, IOException {
 		Connection connection = (Connection) req.getAttribute("connection");
 		PerguntaDAO perguntaDAO = new PerguntaDAO(connection);
+		RespostaDAO respostaDAO = new RespostaDAO(connection);
 		List<Pergunta> listaPerguntas = new ArrayList<Pergunta>();
 		
 		HttpSession session = ((HttpServletRequest) req).getSession(true);
@@ -35,9 +36,25 @@ public class listarRespostas extends HttpServlet{
 		Pessoa pessoa = (Pessoa) session.getAttribute("user");
 		
 		listaPerguntas = perguntaDAO.pegarPerguntasDePessoa(pessoa);
-		//ainda acho q n é esse
 		
-		req.setAttribute("respostas", listaPerguntas);
+		List<Pergunta> listPerguntasComResposta = new ArrayList<Pergunta>();
+		List<Resposta> listRespostas = respostaDAO.respostaDeUmUsuario(pessoa);
+		
+		for(Pergunta pergunta : listaPerguntas){
+			if(pergunta.getIdResposta() != 0){
+				listPerguntasComResposta.add(pergunta);
+			}
+		}
+		
+		for(Pergunta p : listPerguntasComResposta){
+			for(Resposta r : listRespostas){
+				if(p.getIdResposta() == r.getId()){
+					p.setResposta(r);
+				}
+			}
+		}
+		
+		req.setAttribute("respostas", listPerguntasComResposta);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
 		rd.forward(req, resp);

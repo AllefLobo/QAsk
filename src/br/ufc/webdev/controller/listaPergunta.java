@@ -25,17 +25,24 @@ public class listaPergunta extends HttpServlet{
 		// TODO Auto-generated method stub
 		Connection connection = (Connection) req.getAttribute("connection");
 		PerguntaDAO perguntaDAO = new PerguntaDAO(connection);
-		List<Pergunta> listaPerguntas = new ArrayList<Pergunta>();
+		List<Pergunta> listaTodasPerguntas = new ArrayList<Pergunta>();
 		
 		HttpSession session = ((HttpServletRequest) req).getSession(true);
 		
 		Pessoa pessoa = (Pessoa) session.getAttribute("user");
-
-		listaPerguntas = perguntaDAO.pegarPerguntasDePessoa(pessoa);
-
 		//ainda acho q n é esse
 		
-		req.setAttribute("perguntas", listaPerguntas);
+		listaTodasPerguntas = perguntaDAO.pegarPerguntasDePessoa(pessoa);
+		List<Pergunta> perguntasNaoRespondidas = new ArrayList<Pergunta>();
+		//ainda acho q n é esse
+		
+		for(Pergunta pergunta : listaTodasPerguntas){
+			 if(pergunta.getIdResposta() == 0){				
+				perguntasNaoRespondidas.add(pergunta);
+			}
+		}
+		
+		req.setAttribute("perguntas", perguntasNaoRespondidas);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("perguntas.jsp");
 		rd.forward(req, resp);

@@ -13,6 +13,7 @@ public class PerguntaDAO {
 	private static final String PERGUNTA_IDREMETENTE = "id_remetente";
 	private static final String PERGUNTA_IDDESTINATARIO = "id_destino";
 	private static final String PERGUNTA_CONTEUDO = "conteudo_pergunta";
+	private static final String PERGUNTA_IDRESPOSTA = "id_resposta";
 	
 	private Connection connection;
 	
@@ -26,6 +27,7 @@ public class PerguntaDAO {
 		pergunta.setIdRemetente(rs.getInt(PERGUNTA_IDREMETENTE));
 		pergunta.setIdDestinatario(rs.getInt(PERGUNTA_IDDESTINATARIO));
 		pergunta.setConteudo(rs.getString(PERGUNTA_CONTEUDO));
+		pergunta.setIdResposta(rs.getInt(PERGUNTA_IDRESPOSTA));
 		return pergunta;
 	}
 	
@@ -98,5 +100,19 @@ public class PerguntaDAO {
 		}
 		
 		return null;
+	}
+	public void addResposta(int id_pergunta , int id_resposta){
+		PreparedStatement smt = null;
+		
+		try {
+			smt = connection.prepareStatement("update pergunta set id_resposta = ? where id_pergunta = ?");
+			smt.setInt(1, id_resposta);
+			smt.setInt(2, id_pergunta);
+			smt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }

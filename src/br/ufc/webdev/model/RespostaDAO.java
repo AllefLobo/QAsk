@@ -12,9 +12,9 @@ import java.util.List;
 
 public class RespostaDAO {
 
-	private static final String RESPOSTA_ID = "id";
-	private static final String RESPOSTA_CONTEUDO = "nome";
-	private static final String RESPOSTA_ID_CRIADOR = "email";
+	private static final String RESPOSTA_ID = "id_resposta";
+	private static final String RESPOSTA_CONTEUDO = "conteudo_resposta";
+	private static final String RESPOSTA_ID_CRIADOR = "id_criador";
 
 	
 	private Connection connection;
@@ -148,6 +148,30 @@ public class RespostaDAO {
 				closeOpenResources(stmt);
 		}
 
+	}
+	
+	public Resposta buscaResposta(int id , String texto){
+		PreparedStatement smt = null;
+		ResultSet rs = null;
+		
+		try {
+			smt = connection.prepareStatement("select *from resposta where id_criador = ? and conteudo_resposta = ?");
+			smt.setInt(1, id);
+			smt.setString(2, texto);
+			rs = smt.executeQuery();
+			
+			if(rs.first()){
+				Resposta resposta = bindResposta(rs);
+				return resposta;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return null;
 	}
 	
 	private void closeOpenResources(PreparedStatement stmt){
