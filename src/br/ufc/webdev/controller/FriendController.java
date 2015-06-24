@@ -19,7 +19,7 @@ import br.ufc.webdev.model.PessoaDAO;
  * Servlet implementation class FriendControlles
  */
 @WebServlet("/pegarAmigos")
-public class FriendControlles extends HttpServlet {
+public class FriendController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
