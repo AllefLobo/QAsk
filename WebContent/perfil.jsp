@@ -37,7 +37,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
           <!-- <li class="dropdown"> -->
           <li class="active">  
-            <a href="/Qask/perfil.jsp">Perfil</a>
+            <a href="perfilController?perfil=${user.nome}">Perfil</a>
 
             <!--<ul class="dropdown-menu">
               <li><a href="#">Perfil</a></li>

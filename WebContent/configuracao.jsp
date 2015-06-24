@@ -25,17 +25,17 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
  
  <div class="container">
  
- <a href="/Qask/index.jsp"" class="navbar-brand">Qask </a> <button class="navbar-toggle"
+ <a href="listarRespostas" class="navbar-brand">Qask </a> <button class="navbar-toggle"
       data-toggle="collapse" data-target=".navHeaderCollapse"></button>
 
       <div class="collapse navbar-collapse navHeaderCollapse">
         <ul class="nav navbar-nav navbar-right">
-          <li ><a href="/Qask/listarRespostas">Home</a></li>
+          <li ><a href="listarRespostas">Home</a></li>
 
-          <li ><a href="/Qask/perguntas.jsp">Perguntas</a></li>
+          <li ><a href="listaPergunta">Perguntas</a></li>
 
           <li>
-            <a href="/Qask/perfil.jsp">Perfil</a>
+            <a href="perfilController?perfil=${user.nome}">Perfil</a>
 
             <!--<ul class="dropdown-menu">
               <li><a href="#">Perfil</a></li>
@@ -51,7 +51,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
           <li><a href="/Qask/amigos.jsp">Amigos</a></li>
 
           <li class="active"><a href="/Qask/configuracao.jsp">Configuração</a></li>
-          <li><a href="#">Sair</a></li>
+          <li><a href="sair">Sair</a></li>
         </ul>
       </div>
     </div>
