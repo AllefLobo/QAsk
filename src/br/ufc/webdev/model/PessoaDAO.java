@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 public class PessoaDAO<E> {
 
 	private static final String PESSOA_ID = "id_pessoa";
@@ -36,10 +38,9 @@ public class PessoaDAO<E> {
 		}
 	}
 
-	public List<Pessoa> bindAmigosPessoa(int id){
+	public List<Integer> bindAmigosPessoa(int id){
 		
 		List<Integer> idAmigos = new ArrayList<Integer>();
-		List<Pessoa> amigos = new ArrayList<Pessoa>();
 		PreparedStatement smt = null;
 		ResultSet rs = null;
 		
@@ -53,13 +54,7 @@ public class PessoaDAO<E> {
 				idAmigos.add(rs.getInt("id_amigo"));
 			}
 			
-			for(int i: idAmigos){
-				Pessoa pessoa = new Pessoa();
-				pessoa = buscarPessoa(i);
-				amigos.add(pessoa);
-			}
-			
-			return amigos;
+			return idAmigos;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -67,11 +62,11 @@ public class PessoaDAO<E> {
 			closeOpenResources(smt);
 		}
 		
-		return amigos;
+		return idAmigos;
 		
 		
 	}
-	private Pessoa buscarPessoa(int id){
+	public Pessoa buscarPessoa(int id){
 		PreparedStatement smt = null;
 		ResultSet rs = null;
 		try {

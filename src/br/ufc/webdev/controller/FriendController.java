@@ -23,18 +23,27 @@ public class FriendController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response){
+	protected void service(HttpServletRequest request, HttpServletResponse response){
 		// TODO Auto-generated method stub
 		
 		Connection con = (Connection) request.getAttribute("connection");
 		PessoaDAO pdao = new PessoaDAO(con);
+		List<Integer> idAmigos = new ArrayList<Integer>();
+		System.out.println("asdfhisadfiuashdfiuhasdiufhasiudfhiusahdfuih");
 		List<Pessoa> amigos = new ArrayList<Pessoa>();
 		
 		HttpSession sessao = request.getSession();
 		
-		int id = (int) sessao.getAttribute("id_pessoa");
+		Pessoa usuario = (Pessoa) sessao.getAttribute("user");
 		
-		amigos = pdao.bindAmigosPessoa(id);
+		int id = usuario.getId();
+		idAmigos = pdao.bindAmigosPessoa(id);
+		
+		for(int i: idAmigos){
+			Pessoa pessoa = new Pessoa();
+			pessoa = pdao.buscarPessoa(i);
+			amigos.add(pessoa);
+		}
 		
 		request.setAttribute("listaAmigos", amigos);
 		try {
