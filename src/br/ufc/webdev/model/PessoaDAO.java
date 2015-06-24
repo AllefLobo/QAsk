@@ -75,7 +75,7 @@ public class PessoaDAO<E> {
 		PreparedStatement smt = null;
 		ResultSet rs = null;
 		try {
-			smt = connection.prepareStatement("select * from pessoa where id = ?");
+			smt = connection.prepareStatement("select * from pessoa where id_pessoa = ?");
 			smt.setInt(1, id);
 			rs = smt.executeQuery();
 			if(rs.first()){
