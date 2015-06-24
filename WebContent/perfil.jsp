@@ -90,7 +90,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
                 </a>
                 <span>1</span>
                 <div class="user-heading">
-                    <h3>${user.nome}</h3>
+                    <h3>${perfil.nome}</h3>
                 
                 </div>
             </div>
@@ -103,11 +103,14 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
       <form method ="POST" action="perfilController">
         <h2>Fa&ccedila-me uma Pergunta</h2> 
-        <textarea class="pergunta" id="pergunta"></textarea>
+        
+   
+        <textarea name="pergunta"></textarea>
         </br>
-        <input type='submit' class="btn btn-primary" value='Perguntar'>
+        <input type="submit" class="btn btn-primary" value='Perguntar'>
         
       </form>
+      
       <h2>Minhas respostas</h2>
         <c:forEach var="resposta" items="${respostas}">
 		<div>

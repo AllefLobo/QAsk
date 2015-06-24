@@ -15,6 +15,7 @@ import com.mysql.jdbc.Connection;
 import br.ufc.webdev.model.Pergunta;
 import br.ufc.webdev.model.PerguntaDAO;
 import br.ufc.webdev.model.Pessoa;
+import br.ufc.webdev.model.PessoaDAO;
 import br.ufc.webdev.model.Resposta;
 import br.ufc.webdev.model.RespostaDAO;
 
@@ -28,12 +29,17 @@ public class PerfilController extends HttpServlet {
 		Connection connection = (Connection) req.getAttribute("connection");
 		
 		HttpSession session = req.getSession(true);
-		RespostaDAO dao = new RespostaDAO(connection);
+		RespostaDAO respostaDAO = new RespostaDAO(connection);
+		PessoaDAO pessoaDAO = new PessoaDAO(connection);
 		
-		Pessoa pessoa = (Pessoa) session.getAttribute("user");
+		String perfil = req.getParameter("perfil");
 		
-		List<Resposta> respostas = dao.respostaDeUmUsuario(pessoa);
+		System.out.println("perfil é"+perfil);
+		Pessoa pessoa = pessoaDAO.buscarPessoa(perfil);
 		
+		List<Resposta> respostas = respostaDAO.respostaDeUmUsuario(pessoa);
+		
+		session.setAttribute("perfil", pessoa);
 		session.setAttribute("respostas", respostas);
 		req.getRequestDispatcher("perfil.jsp").forward(req, resp);
 	}
@@ -44,20 +50,23 @@ public class PerfilController extends HttpServlet {
 
 		String conteudo = req.getParameter("pergunta");
 		System.out.println(conteudo);
+		
 		HttpSession session = req.getSession(true);
 		
 		Connection connection = (Connection) req.getAttribute("connection");
 		PerguntaDAO dao = new PerguntaDAO(connection);
 		
 		Pessoa remetente = (Pessoa) session.getAttribute("user");
+		Pessoa destinatario = (Pessoa) session.getAttribute("perfil");
 		
 		Pergunta pergunta = new Pergunta();
 		pergunta.setConteudo(conteudo);
 		pergunta.setIdRemetente(remetente.getId());
+		pergunta.setIdDestinatario(destinatario.getId());
 		
-		if(conteudo != null && conteudo != ""){
+		
 			dao.addPergunta(pergunta);
-		}
+		
 		req.getRequestDispatcher("perfil.jsp").forward(req, resp);
 	}
 }
