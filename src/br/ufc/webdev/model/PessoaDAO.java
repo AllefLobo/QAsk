@@ -20,8 +20,23 @@ public class PessoaDAO<E> {
 		this.connection = connection;
 	}
 	
+	
+	
+	public void fazAmizade(int id_pessoa, int id_amigo){
+		try {
+			PreparedStatement stm = connection.prepareStatement("insert into amigoDe (id_pessoa, id_amigo) values (?, ?)");
+			stm.setInt(1, id_pessoa);
+			stm.setInt(2, id_amigo);
+			
+			stm.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
-public List<Pessoa> bindAmigosPessoa(int id){
+	public List<Pessoa> bindAmigosPessoa(int id){
 		
 		List<Integer> idAmigos = new ArrayList<Integer>();
 		List<Pessoa> amigos = new ArrayList<Pessoa>();
@@ -48,7 +63,10 @@ public List<Pessoa> bindAmigosPessoa(int id){
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			closeOpenResources(smt);
 		}
+		
 		return amigos;
 		
 		
