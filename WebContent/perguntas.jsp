@@ -70,7 +70,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 				<div>
 					<p>${pergunta.conteudo}</p>
 	        		<a href="perguntaController?id_pergunta=${pergunta.id}" class="btn btn-primary " >Responder</a>
-	        		<a href="#" class="btn btn-danger " >Apagar</a>
+	        		<a href="apagarPerguntaNaoRespondidas?id_pergunta=${pergunta.id}" class="btn btn-danger " >Apagar</a>
       			</div>
 			</c:forEach>
 	    </c:when>

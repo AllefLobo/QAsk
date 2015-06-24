@@ -70,6 +70,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 				<div>
 					<p><b>${resposta.conteudo}</b></p>
 					<p>${resposta.resposta.conteudo}</p>
+					<a href="ApagarPerguntaRespondida?id_pergunta=${resposta.id}" class="btn btn-danger " >Apagar</a>
 				</div>
 			</c:forEach>
 	    </c:when>
