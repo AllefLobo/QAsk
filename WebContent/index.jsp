@@ -25,12 +25,12 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
  
  <div class="container">
  
- <a href="/Qask/index.jsp"" class="navbar-brand">Qask </a> <button class="navbar-toggle"
+ <a href="listarRespostas" class="navbar-brand">Qask </a> <button class="navbar-toggle"
       data-toggle="collapse" data-target=".navHeaderCollapse"></button>
 
       <div class="collapse navbar-collapse navHeaderCollapse">
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="/Qask/index.jsp">Home</a></li>
+          <li class="active"><a href="listarRespostas">Home</a></li>
 
           <li><a href="listaPergunta">Perguntas</a></li>
 
@@ -68,7 +68,8 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
     	<c:when test="${not empty respostas}">
 	    	<c:forEach var="resposta" items="${respostas}">
 				<div>
-					<p>${resposta.conteudo}</p>
+					<p><b>${resposta.conteudo}</b></p>
+					<p>${resposta.resposta.conteudo}</p>
 				</div>
 			</c:forEach>
 	    </c:when>

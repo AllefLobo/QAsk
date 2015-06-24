@@ -46,11 +46,15 @@ public class listarRespostas extends HttpServlet{
 			}
 		}
 		
-		for(Pergunta p : listaPerguntas){
-			for
+		for(Pergunta p : listPerguntasComResposta){
+			for(Resposta r : listRespostas){
+				if(p.getIdResposta() == r.getId()){
+					p.setResposta(r);
+				}
+			}
 		}
 		
-		req.setAttribute("respostas", listaPerguntas);
+		req.setAttribute("respostas", listPerguntasComResposta);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
 		rd.forward(req, resp);
