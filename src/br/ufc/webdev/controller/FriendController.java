@@ -29,7 +29,7 @@ public class FriendController extends HttpServlet {
 		Connection con = (Connection) request.getAttribute("connection");
 		PessoaDAO pdao = new PessoaDAO(con);
 		List<Integer> idAmigos = new ArrayList<Integer>();
-		System.out.println("asdfhisadfiuashdfiuhasdiufhasiudfhiusahdfuih");
+		
 		List<Pessoa> amigos = new ArrayList<Pessoa>();
 		
 		HttpSession sessao = request.getSession();

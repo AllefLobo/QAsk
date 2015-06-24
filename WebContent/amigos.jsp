@@ -73,7 +73,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 		          		<img src="http://www.gravatar.com/avatar/2ab7b2009d27ec37bffee791819a090c?s=100&d=mm&r=g" alt="Karan Singh Sisodia" title="Karan Singh Sisodia" class="img-circle">
 		          		<h2>${pessoa.nome}<h2>
 		          		<a href="desfazerAmizade" class="btn btn-danger " >Desfazer Amizade</a>
-		          		<a href="#" class="btn btn-danger " >Ver Perfil</a>
+		          		<a href="perfilController?perfil=${pessoa.nome}" class="btn btn-danger " >Ver Perfil</a>
 		          </div>
 			</c:forEach>
 		</c:when>
