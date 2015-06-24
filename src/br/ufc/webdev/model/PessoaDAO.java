@@ -20,8 +20,8 @@ public class PessoaDAO<E> {
 		this.connection = connection;
 	}
 	
-	
-	public List<Pessoa> bindAmigosPessoa(int id){
+
+public List<Pessoa> bindAmigosPessoa(int id){
 		
 		List<Integer> idAmigos = new ArrayList<Integer>();
 		List<Pessoa> amigos = new ArrayList<Pessoa>();
@@ -73,8 +73,6 @@ public class PessoaDAO<E> {
 		
 		return null;
 	}
-	
-
 	
 	
 	private Pessoa bindPessoa(ResultSet rs) throws SQLException {
