@@ -63,13 +63,14 @@ public class UpdateController extends HttpServlet {
 			int id = Integer.parseInt(req.getParameter("id"));
 			String nome = req.getParameter("nome").trim();
 			String email = req.getParameter("email").trim();
+			String sobre = req.getParameter("sobre").trim();
 			String senha = req.getParameter("senha").trim();
 			
 			
-			if (nome == null || senha == null || email == null || id <= 0) {
+			if (nome.trim() == null || senha.trim() == null || email.trim() == null || id <= 0 || sobre == null) {
 				erros.add("Preencha os campos de nome e senha");
 				
-			} else if (nome.trim().equals("") || senha.trim().equals("") || email.trim().equals("")) {
+			} else if (nome.trim().equals("") || senha.trim().equals("") || email.trim().equals("") || sobre.trim().equals("")) {
 				erros.add("Preencha os campos de nome, senha ou email");
 			} else if(id <= 0){
 				erros.add("Id inválido");
@@ -80,6 +81,7 @@ public class UpdateController extends HttpServlet {
 			pessoa.setId(id);
 			pessoa.setNome(nome);
 			pessoa.setSenha(senha);
+			pessoa.setSobre(sobre);
 			pessoa.setEmail(email);
 			
 			return true;

@@ -70,6 +70,8 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
         <input type="text" id='nome' name="nome" value="${user.nome}" />
         <p><b>Email:</b></p>
         <input type="email" id='email' name="email" value="${user.email}" />
+        <p><b>Sobre mim:</b></p>
+        <textarea name="sobre" value="${user.sobre }"></textarea>
         <p><b>Senha:</b></p>
         <input type="password" id='senha' name="senha" value="${user.senha}" />
  

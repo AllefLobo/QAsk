@@ -7,6 +7,7 @@ public class Pessoa {
 	private String nome;
 	private String email;
 	private String senha;
+	private String sobre;
 
 	
 	public int getId() {
@@ -32,6 +33,12 @@ public class Pessoa {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public String getSobre() {
+		return sobre;
+	}
+	public void setSobre(String sobre) {
+		this.sobre = sobre;
 	}
 
 	

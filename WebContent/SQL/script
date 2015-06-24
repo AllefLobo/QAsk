@@ -3,10 +3,11 @@ create database Qask;
 use Qask;
 
 create table pessoa(
-id_pessoa int not null AUTO_INCREMENT primary key,
+id_pessoa int not null AUTO_INCREMENT  primary key,
 nome varchar(30),
 email varchar(20),
-senha varchar(16));
+senha varchar(16),
+sobreMim varchar(255));
 
 create table resposta(
 id_resposta int not null AUTO_INCREMENT primary key,
