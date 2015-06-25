@@ -40,7 +40,7 @@ public class PerfilController extends HttpServlet {
 		
 		session.setAttribute("perfil", pessoa);
 		session.setAttribute("respostas", respostas);
-		req.getRequestDispatcher("listarRespostasPerfil").forward(req, resp);
+		req.getRequestDispatcher("listarRespostasPerfil?id_destino="+pessoa.getId()).forward(req, resp);
 	}
 	
 	@Override
@@ -64,8 +64,9 @@ public class PerfilController extends HttpServlet {
 		pergunta.setIdDestinatario(destinatario.getId());
 		
 		
-			dao.addPergunta(pergunta);
+		dao.addPergunta(pergunta);
 		
-		req.getRequestDispatcher("listarRespostasPerfil").forward(req, resp);
+		req.getRequestDispatcher("listarRespostasPerfil?id_destino="+destinatario.getId()).forward(req, resp);
+	
 	}
 }

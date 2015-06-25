@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import br.ufc.webdev.model.Pergunta;
 import br.ufc.webdev.model.PerguntaDAO;
 import br.ufc.webdev.model.Pessoa;
+import br.ufc.webdev.model.PessoaDAO;
 import br.ufc.webdev.model.Resposta;
 import br.ufc.webdev.model.RespostaDAO;
 
@@ -27,14 +28,18 @@ public class ListarRespostasPerfil extends HttpServlet{
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		int id = Integer.parseInt(req.getParameter("id_destino"));
+		
 		Connection connection = (Connection) req.getAttribute("connection");
 		PerguntaDAO perguntaDAO = new PerguntaDAO(connection);
 		RespostaDAO respostaDAO = new RespostaDAO(connection);
+		PessoaDAO pessoaDAO = new PessoaDAO(connection);
 		List<Pergunta> listaPerguntas = new ArrayList<Pergunta>();
 		
 		HttpSession session = ((HttpServletRequest) req).getSession(true);
 		
-		Pessoa pessoa = (Pessoa) session.getAttribute("user");
+		Pessoa pessoa = pessoaDAO.buscarPessoa(id);
 		
 		listaPerguntas = perguntaDAO.pegarPerguntasDePessoa(pessoa);
 		
