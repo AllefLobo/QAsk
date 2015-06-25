@@ -78,7 +78,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="bootstrap-3.1.0/dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="JS/confirmacao.js"></script>
+	<script type="text/javascript" src="JS/confirmacaoIndex.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="bootstrap-3.1.0/ie10-viewport-bug-workaround.js"></script>
 </body>
