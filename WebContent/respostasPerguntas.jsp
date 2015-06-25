@@ -30,27 +30,16 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
       <div class="collapse navbar-collapse navHeaderCollapse">
         <ul class="nav navbar-nav navbar-right">
-          <li ><a href="listaRespostas">Home</a></li>
+          <li><a href="listarRespostas">Home</a></li>
 
           <li class="active"><a href="listaPergunta">Perguntas</a></li>
 
-          <li >
-            <a href="perfilController?perfil=${user.nome}">Perfil</a>
+          <li><a href="perfilController?perfil=${user.nome}" >Perfil</a></li>
 
-            <!--<ul class="dropdown-menu">
-              <li><a href="#">Perfil</a></li>
+          <li><a href="pegarAmigos">Amigos</a></li>
 
-              <li><a href="#">Amigos</a></li>
-
-              <li><a href="#">Google+</a></li>
-
-              <li><a href="#">Instagram</a></li>
-            </ul>-->
-          </li>
-
-          <li><a href="/Qask/amigos.jsp">Amigos</a></li>
-
-          <li><a href="/Qask/configuracao.jsp">ConfiguraÃ§ao</a></li>
+          <li><a href="/Qask/configuracao.jsp">Configura&ccedil&atildeo</a></li>
+          <li><a href="/Qask/pesquisa.jsp">Pesquisar</a></li>
           <li><a href="sair">Sair</a></li>
         </ul>
       </div>
@@ -60,13 +49,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
   <div class="container">  
  
-	<div>
-		<form method="" action="" class="pesquisa">
-			<input type="text" values=""/>
-			<input type='submit' class="btn btn-primary" value='Pesquisar' name="pesquisar" id="pesquisa">
-		</form>
-	</div>
-	
+
 
     <div class="well well-sm">
     <h2>Perguntas</h2>  
