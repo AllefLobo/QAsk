@@ -102,14 +102,13 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
       </form>
       
       <h2>Minhas respostas</h2>
-        <c:forEach var="resposta" items="${respostas}">
+        <c:forEach var="resposta" items="${respostasPerfil}">
 		<div>
-        <p><b>Pergunta?</b></p>
-        <p>${resposta.conteudo }</p>
-        <input type='submit' class="btn btn-danger" value='Excluir'>
+        <b>Pergunta:</b>
+        <p><b>${resposta.conteudo }</b></p>
+         <p>${resposta.resposta.conteudo }</p>
       	</div>
 		</c:forEach>
- 
     </div>
 
   </div>

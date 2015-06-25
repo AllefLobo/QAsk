@@ -59,7 +59,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 				<div>
 					<p>${pergunta.conteudo}</p>
 	        		<a href="perguntaController?id_pergunta=${pergunta.id}" class="btn btn-primary " >Responder</a>
-	        		<a href="apagarPerguntaNaoRespondidas?id_pergunta=${pergunta.id}" class="btn btn-danger " >Apagar</a>
+	        		<a href="apagarPerguntaNaoRespondidas?id_pergunta=${pergunta.id}" class="btn btn-danger " id="apagar">Apagar</a>
       			</div>
 			</c:forEach>
 	    </c:when>
@@ -78,7 +78,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="bootstrap-3.1.0/dist/js/bootstrap.min.js"></script>
-
+	<script type="text/javascript" src="JS/confirmacao.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="bootstrap-3.1.0/ie10-viewport-bug-workaround.js"></script>
 </body>

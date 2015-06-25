@@ -41,7 +41,7 @@ public class PerfilController extends HttpServlet {
 		
 		session.setAttribute("perfil", pessoa);
 		session.setAttribute("respostas", respostas);
-		req.getRequestDispatcher("perfil.jsp").forward(req, resp);
+		req.getRequestDispatcher("listarRespostasPerfil").forward(req, resp);
 	}
 	
 	@Override
@@ -67,6 +67,6 @@ public class PerfilController extends HttpServlet {
 		
 			dao.addPergunta(pergunta);
 		
-		req.getRequestDispatcher("perfil.jsp").forward(req, resp);
+		req.getRequestDispatcher("listarRespostasPerfil").forward(req, resp);
 	}
 }
