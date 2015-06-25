@@ -56,7 +56,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
         <p><b>Nome:</b></p>
         <input type="text" id='nome' name="nome" value="${user.nome}" />
         <p><b>Email:</b></p>
-
+		<input type="email" id='email' name="email" value="${user.email}" />
         <p><b>Senha:</b></p>
         <input type="password" id='senha' name="senha" value="${user.senha}" />
  
