@@ -48,6 +48,12 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
   
 
   <div class="container">  
+
+
+
+    <div class="well well-sm">
+
+
 	<div>
 		<form method="" action="" class="pesquisa">
 			<input type="text" values=""/>
@@ -56,10 +62,11 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 	</div> 
 
 
-    <div class="well well-sm">
-
-
-
+	<div class="amigo">
+		<img src="http://www.gravatar.com/avatar/2ab7b2009d27ec37bffee791819a090c?s=100&d=mm&r=g" alt="Karan Singh Sisodia" title="Karan Singh Sisodia" class="img-circle">
+		<h2>adfasdfasd<h2>
+		<a href="#" class="btn btn-success " >Ver Perfil</a>
+	</div>
 	 </div>
    </div>
 

@@ -75,10 +75,6 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
                   <span>Seguidores:</span>
                 </a>
                 <span>1</span>
-                <a href="">
-                  <span>Curtidas:</span>
-                </a>
-                <span>1</span>
                 <div class="user-heading">
                     <h3>${perfil.nome}</h3>
                 
