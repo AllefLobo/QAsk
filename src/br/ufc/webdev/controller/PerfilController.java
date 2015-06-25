@@ -34,7 +34,6 @@ public class PerfilController extends HttpServlet {
 		
 		String perfil = req.getParameter("perfil");
 		
-		System.out.println("perfil é"+perfil);
 		Pessoa pessoa = pessoaDAO.buscarPessoa(perfil);
 		
 		List<Resposta> respostas = respostaDAO.respostaDeUmUsuario(pessoa);
