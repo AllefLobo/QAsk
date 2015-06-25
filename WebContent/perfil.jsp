@@ -64,9 +64,10 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
         <div class="col-sm-4 col-md-4 user-details">
             <div class="user-image">
                 <img src="http://www.gravatar.com/avatar/2ab7b2009d27ec37bffee791819a090c?s=100&d=mm&r=g" alt="Karan Singh Sisodia" title="Karan Singh Sisodia" class="img-circle">
+            	 <a href="#" class="btn btn-success " >Follow</a>
             </div>
             </br>
-            <div class="user-info-block">
+            <!--<div class="user-info-block">
                 <a href="">
                   <span>Respostas:</span>
                 </a>
@@ -79,7 +80,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
                     <h3>${perfil.nome}</h3>
                 
                 </div>
-            </div>
+            </div>-->
         </div>
       </div>
     </div>
@@ -96,13 +97,15 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
         <input type="submit" class="btn btn-primary" value='Perguntar'>
         
       </form>
+     
       
       <h2>Minhas respostas</h2>
         <c:forEach var="resposta" items="${respostasPerfil}">
+        
 		<div>
-        <b>Pergunta:</b>
-        <p><b>${resposta.conteudo }</b></p>
-         <p>${resposta.resposta.conteudo }</p>
+        	<b>Pergunta:</b>
+        	<p><b>${resposta.conteudo }</b></p>
+         	<p>${resposta.resposta.conteudo }</p>
       	</div>
 		</c:forEach>
     </div>
