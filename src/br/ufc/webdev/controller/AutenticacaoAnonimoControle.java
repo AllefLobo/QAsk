@@ -9,7 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.mysql.jdbc.Connection;
+
 import br.ufc.webdev.model.Pessoa;
+import br.ufc.webdev.model.PessoaDAO;
 
 /**
  * Servlet implementation class AutenticacaoAnonimoControle
@@ -20,13 +23,12 @@ public class AutenticacaoAnonimoControle extends HttpServlet {
  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		
+		Connection connection = (Connection) request.getAttribute("connection");
 		HttpSession session = request.getSession();
+		PessoaDAO dao = new PessoaDAO(connection);
 		Pessoa anonima = new Pessoa();
-		anonima.setNome("anonimo");
-		anonima.setEmail("NULL");
-		anonima.setSenha("NULL");
-		anonima.setId(0);
+		
+		anonima = dao.buscarPessoa(3);
 		session.setAttribute("anonimo", anonima);
 		
 		try {

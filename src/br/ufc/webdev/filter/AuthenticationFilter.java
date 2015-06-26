@@ -34,7 +34,9 @@ public class AuthenticationFilter implements Filter {
 			return;
 		}
 		
-		if( path.contains("login.jsp") || path.contains("autentica") || path.contains("anonimaPerfil.jsp") || path.contains("anonima.jsp") || path.contains("AutenticacaoAnonimo") || path.contains("BuscarPerfilAnonimo")){
+		if( path.contains("login.jsp") || path.contains("autentica") || path.contains("anonimaPerfil.jsp") 
+				|| path.contains("anonima.jsp") || path.contains("AutenticacaoAnonimo") || path.contains("BuscarPerfilAnonimo")
+				|| path.contains("listarRespostaPerfilAnonimo") || path.contains("perfilControllerAnonimo")){
 			chain.doFilter(req, resp);
 		}else if( session != null && session.getAttribute("user") != null ){
 			chain.doFilter(req, resp);
