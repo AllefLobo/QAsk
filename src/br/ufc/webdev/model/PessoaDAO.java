@@ -24,22 +24,19 @@ public class PessoaDAO<E> {
 	
 	
 	
-	public boolean buscarAmizade(int id_pessoa, int id_amigo){
+	public boolean saoAmigos(int id_pessoa, int id_amigo){
+			
 		try {
-			PreparedStatement stm = connection.prepareStatement("select * from amigoDe where id_pessoa= ? and id_amigo=?");
+			PreparedStatement stm = connection.prepareStatement("select id_amigo from amigoDe where id_pessoa= ? and id_amigo=?");
 			stm.setInt(1, id_pessoa);
 			stm.setInt(2, id_amigo);
-			
 			ResultSet rs = stm.executeQuery();
 			
-			rs.first();
-			
-			if(rs.getInt("id_amigo") == id_pessoa){
-				return true;
-			}else{
-				return false;
+			while(rs.next()){
+				if(rs.getInt("id_amigo") == id_amigo){
+					return true;
+				}
 			}
-			
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -34,9 +34,10 @@ public class FazerAmizadeController extends HttpServlet {
 		
 		int id_pessoa = pessoa.getId();
 		
-		if(id_amigo > 0 && id_amigo != id_pessoa && pDao.buscarAmizade(id_pessoa, id_amigo)){
+		if(id_amigo > 0 && id_amigo != id_pessoa && pDao.saoAmigos(id_pessoa, id_amigo) == false){
 			
 			pDao.fazAmizade(id_pessoa, id_amigo);
+			System.out.println("fez amizade");
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher("perfil.jsp");
