@@ -26,22 +26,16 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
  
  <div class="container">
  
- <a href="listarRespostas"" class="navbar-brand">Qask </a> <button class="navbar-toggle"
+ <a href="anonima.jsp"" class="navbar-brand">Qask </a> <button class="navbar-toggle"
       data-toggle="collapse" data-target=".navHeaderCollapse"></button>
 
       <div class="collapse navbar-collapse navHeaderCollapse">
         <ul class="nav navbar-nav navbar-right">
-          <li ><a href="listarRespostas">Home</a></li>
 
-          <li><a href="listaPergunta">Perguntas</a></li>
+          <li class="active"> Perfil</li>
 
-          <li class="active"><a href="perfilController?perfil=${user.nome}" >Perfil</a></li>
-
-          <li><a href="pegarAmigos">Amigos</a></li>
-
-          <li><a href="/Qask/configuracao.jsp">Configura&ccedil&atildeo</a></li>
-          <li><a href="/Qask/pesquisa.jsp">Pesquisar</a></li>
-          <li><a href="sair">Sair</a></li>
+          <li><a href="/Qask/anonima.jsp">Pesquisar</a></li>
+          <li><a href="sair">Volta p/ login</a></li>
         </ul>
       </div>
     </div>
@@ -64,11 +58,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
         <div class="col-sm-4 col-md-4 user-details">
             <div class="user-image">
                 <img src="http://www.gravatar.com/avatar/2ab7b2009d27ec37bffee791819a090c?s=100&d=mm&r=g" alt="Karan Singh Sisodia" title="Karan Singh Sisodia" class="img-circle">
-            	 <c:choose>
-            	 	<c:when test="${perfil.id != user.id }">
-            	 		<a href="FazerAmizade?id_amigo=${perfil.id}" class="btn btn-success " >Follow</a>
-            	 	</c:when>
-            	 </c:choose>
+            	 
             	 
             
             
@@ -95,7 +85,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
 
 
 
-      <form method ="POST" action="perfilController">
+      <form method ="POST" action="perfilControllerAnonimo">
         <h2>Fa&ccedila-me uma Pergunta</h2> 
         
    

@@ -52,7 +52,9 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-group">
+                  
+                  
+                  <!--<div class="form-group">
                     <div class="row">
                       <div class="col-lg-12">
                         <div class="text-center">
@@ -60,7 +62,10 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div>-->
+                </form>
+                <form action="AutenticacaoAnonimo"  method="post">
+                	<input type="submit" name="entrar-sem-logar" id="entrar-sem-logar" tabindex="4" class="form-control btn btn-login" value="Entrar sem logar">
                 </form>
                 <!-- Form registar -->
                 <form id="register-form" action="adicionaPessoa" method="post" role="form" style="display: none;">
@@ -71,12 +76,12 @@
                     <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
                   </div>
                   <div class="form-group">
-                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
                   </div>
                   <div class="form-group">
                     <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
                   </div>
                   <div class="form-group">
+                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
                     <div class="row">
                       <div class="col-sm-6 col-sm-offset-3">
                         <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
