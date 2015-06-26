@@ -24,18 +24,28 @@ public class PessoaDAO<E> {
 	
 	
 	
-	public void buscarAmizade(int id_pessoa, int id_amigo){
+	public boolean buscarAmizade(int id_pessoa, int id_amigo){
 		try {
-			PreparedStatement stm = connection.prepareStatement("");
+			PreparedStatement stm = connection.prepareStatement("select * from amigoDe where id_pessoa= ? and id_amigo=?");
 			stm.setInt(1, id_pessoa);
 			stm.setInt(2, id_amigo);
 			
-			stm.execute();
+			ResultSet rs = stm.executeQuery();
+			
+			rs.first();
+			
+			if(rs.getInt("id_amigo") == id_pessoa){
+				return true;
+			}else{
+				return false;
+			}
+			
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return false;
 	}
 	public void desfazerAmizade(int id_pessoa, int id_amigo){
 		try {
