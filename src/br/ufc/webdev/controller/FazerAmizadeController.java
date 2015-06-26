@@ -11,16 +11,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import br.ufc.webdev.model.Pessoa;
 import br.ufc.webdev.model.PessoaDAO;
 
 /**
  * Servlet implementation class FazerAmizadeController
  */
-@WebServlet("/FazerAmizadeController")
+@WebServlet("/FazerAmizade")
 public class FazerAmizadeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	protected void doPost(HttpServletRequest request, HttpServletResponse response){
+	protected void service(HttpServletRequest request, HttpServletResponse response){
 		// TODO Auto-generated method stub
 		
 		Connection con = (Connection) request.getAttribute("connection");
@@ -29,12 +30,16 @@ public class FazerAmizadeController extends HttpServlet {
 		
 		int id_amigo = Integer.parseInt(request.getParameter("id_amigo"));
 		
-		int id_pessoa = (int) sessao.getAttribute("id_pessoa");
+		Pessoa pessoa = (Pessoa) sessao.getAttribute("user");
+		
+		int id_pessoa = pessoa.getId();
 		
 		if(id_amigo > 0 && id_amigo != id_pessoa){
+			
 			pDao.fazAmizade(id_pessoa, id_amigo);
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+		
+		RequestDispatcher rd = request.getRequestDispatcher("perfil.jsp");
 		try {
 			rd.forward(request, response);
 		} catch (ServletException | IOException e) {

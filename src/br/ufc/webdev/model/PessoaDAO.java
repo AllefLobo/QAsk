@@ -24,6 +24,33 @@ public class PessoaDAO<E> {
 	
 	
 	
+	public void buscarAmizade(int id_pessoa, int id_amigo){
+		try {
+			PreparedStatement stm = connection.prepareStatement("");
+			stm.setInt(1, id_pessoa);
+			stm.setInt(2, id_amigo);
+			
+			stm.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void desfazerAmizade(int id_pessoa, int id_amigo){
+		try {
+			PreparedStatement stm = connection.prepareStatement("Delete from amigoDe where id_pessoa=? and id_amigo=?");
+			stm.setInt(1, id_pessoa);
+			stm.setInt(2, id_amigo);
+			
+			stm.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public void fazAmizade(int id_pessoa, int id_amigo){
 		try {
 			PreparedStatement stm = connection.prepareStatement("insert into amigoDe (id_pessoa, id_amigo) values (?, ?)");
