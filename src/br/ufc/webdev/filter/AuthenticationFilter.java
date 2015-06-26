@@ -29,11 +29,11 @@ public class AuthenticationFilter implements Filter {
 		HttpSession session = ((HttpServletRequest) req).getSession(false);
 		
 		String path = ((HttpServletRequest) req).getRequestURI();
-		if(path.endsWith(".js") || path.endsWith(".css")){
-			
+		if(path.endsWith(".js") || path.endsWith(".css") || path.endsWith("adicionaPessoa")){
 			chain.doFilter(req, resp);
 			return;
 		}
+		
 		if( path.contains("login.jsp") || path.contains("autentica") ){
 			chain.doFilter(req, resp);
 		}else if( session != null && session.getAttribute("user") != null ){

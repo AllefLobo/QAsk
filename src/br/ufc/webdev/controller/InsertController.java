@@ -16,7 +16,7 @@ import com.mysql.jdbc.Connection;
 import br.ufc.webdev.model.Pessoa;
 import br.ufc.webdev.model.PessoaDAO;
 
-@WebServlet(name="adicionaPessoa", urlPatterns={"/adicionaPessoa"})
+@WebServlet(urlPatterns={"/adicionaPessoa"})
 public class InsertController extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
@@ -24,7 +24,6 @@ public class InsertController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
 		List<String> erros = new ArrayList<String>();
 		Pessoa pessoa = new Pessoa();
 		if (isValid(req, pessoa, erros)){
@@ -34,8 +33,11 @@ public class InsertController extends HttpServlet{
 			PessoaDAO dao = new PessoaDAO(connection);
 			try {
 				dao.insert(pessoa);
-				resp.sendRedirect("index.jsp");
-			} catch (SQLException e) {}
+				
+				resp.sendRedirect("login.jsp");
+			} catch (SQLException e) {
+				
+			}
 			
 
 		} else {
