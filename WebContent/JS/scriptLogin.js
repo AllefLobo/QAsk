@@ -15,4 +15,43 @@ $(function() {
 		e.preventDefault();
 	});
 
+	document.getElementById("register-submit").onclick = validarRegistro;
+	document.getElementById("login-submit").onclick = validarLogin;
+
 });
+
+
+function validarRegistro(){
+
+
+	var nome = document.getElementById("register-username").value;
+	var email = document.getElementById("register-email").value;
+	var confirmSenha = document.getElementById("register-confirm-password").value;
+	var senha = document.getElementById("register-password").value;
+
+	
+	if (nome == "" || email == "" || senha == "" || confirmSenha == "") {
+		document.getElementById("register-erro").innerHTML = "Preencha os campos de nome, senha ou email"; 
+		return false;
+	}
+	
+	if( senha != confirmSenha ){
+		document.getElementById("register-erro").innerHTML = "Os campos de senha diferentes"; 
+		return false;
+	}
+	
+
+}
+
+function validarLogin(){
+	var nome = document.getElementById("login-username").value;
+	var senha = document.getElementById("login-password").value;
+	
+	if (nome == "" || senha == "" ) {
+		document.getElementById("login-erro").innerHTML = "Preencha os campos de nome ou senha"; 
+		return false;
+	}
+	
+
+	
+}

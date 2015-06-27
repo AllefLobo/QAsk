@@ -63,7 +63,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
       <div class="row">
         <div class="col-sm-4 col-md-4 user-details">
             <div class="user-image">
-                <img src="http://www.gravatar.com/avatar/2ab7b2009d27ec37bffee791819a090c?s=100&d=mm&r=g" alt="Karan Singh Sisodia" title="Karan Singh Sisodia" class="img-circle">
+                <img src="img/photo.jpg" alt="photo default" title="Karan Singh Sisodia" class="img-circle">
             	 <c:choose>
             	 	<c:when test="${perfil.id != user.id }">
             	 		<a href="FazerAmizade?id_amigo=${perfil.id}" class="btn btn-success " >Follow</a>

@@ -37,7 +37,6 @@ FOREIGN KEY (id_amigo)
 REFERENCES pessoa(id_pessoa));
 
 
-//
 insert into pessoa (nome) values ("anonimo");
 
 

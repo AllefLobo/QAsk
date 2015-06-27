@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +19,7 @@
 
     <div class="container">
       <div class="row">
+
       <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-login">
           <div class="panel-heading">
@@ -25,26 +28,30 @@
                 <a href="#" class="active" id="login-form-link">Login</a>
               </div>
               <div class="col-xs-6">
-                <a href="#" id="register-form-link">Register</a>
+                <a href="" name="register" id="register-form-link">Register</a>
               </div>
             </div>
             <hr>
           </div>
           <div class="panel-body">
             <div class="row">
+            
               <div class="col-lg-12">
               <!-- Form login -->
+
                 <form id="login-form" action="autentica" method="post" role="form" style="display: block;">
                   <div class="form-group">
-                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                    <input type="text" name="login-username" id="login-username" tabindex="1" class="form-control" placeholder="Username" value=""><br/>
+                    
                   </div>
                   <div class="form-group">
-                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                    <input type="password" name="login-password" id="login-password" tabindex="2" class="form-control" placeholder="Password"><br/>
+                   <p id="login-erro" class="alert alert-danger" ></p>
                   </div>
-                  <div class="form-group text-center">
-                    <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                    <label for="remember"> Remember Me</label>
-                  </div>
+                   <div id="erro" class="alert alert-danger" role="alert">
+						${erro}
+					</div>
+
                   <div class="form-group">
                     <div class="row">
                       <div class="col-sm-6 col-sm-offset-3">
@@ -67,25 +74,28 @@
                 <form action="AutenticacaoAnonimo"  method="post">
                 	<input type="submit" name="entrar-sem-logar" id="entrar-sem-logar" tabindex="4" class="form-control btn btn-login" value="Entrar sem logar">
                 </form>
-                <!-- Form registar -->
-                <form id="register-form" action="adicionaPessoa" method="post" role="form" style="display: none;">
+                <!-- Form registrar -->
+             
+                <form id="register-form"  action="adicionaPessoa" method="post" role="form" style="display: none;">
                   <div class="form-group">
-                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                    <input type="text" name="register-username" id="register-username" tabindex="1" class="form-control" placeholder="Username" >
+                   
                   </div>
                   <div class="form-group">
-                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                    <input type="email" name="register-email" id="register-email" tabindex="1" class="form-control" placeholder="Email Address">
+                  
                   </div>
                   <div class="form-group">
+                    <input type="password" name="register-password" id="register-password" tabindex="2" class="form-control" placeholder="Password">
+                  	
                   </div>
                   <div class="form-group">
-                    <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
-                  </div>
-                  <div class="form-group">
-                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                    <input type="password" name="register-confirm-password" id="register-confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                    <p id="register-erro" class="alert alert-danger" ></p>
+
                     <div class="row">
-                      <div class="col-sm-6 col-sm-offset-3">
-                        <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
-                      </div>
+                    <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                     
                     </div>
                   </div>
                 </form>

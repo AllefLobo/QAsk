@@ -29,8 +29,8 @@ public class AuthenticationController extends HttpServlet{
 		Connection connection = (Connection) req.getAttribute("connection");
 		PessoaDAO dao = new PessoaDAO(connection);
 		
-		String nome = req.getParameter("username");
-		String senha = req.getParameter("password");
+		String nome = req.getParameter("login-username");
+		String senha = req.getParameter("login-password");
 		
 		Pessoa pessoa = new Pessoa();
 		

@@ -25,7 +25,7 @@ public class UpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
   @Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 	  
 	  
@@ -38,11 +38,14 @@ public class UpdateController extends HttpServlet {
 				PessoaDAO dao = new PessoaDAO(connection);
 				
 				try {
-					dao.update(pessoa);
-					HttpSession session = req.getSession();
-					session.setAttribute("user", pessoa);
+					if( !dao.authenticate(pessoa) ){
+						dao.update(pessoa);
+						HttpSession session = req.getSession();
+						session.setAttribute("user", pessoa);
+						req.getRequestDispatcher("listarRespostas").forward(req, resp);
+					}
+					req.setAttribute("erros", "uma pessoa com nome "+pessoa.getNome()+" já existe!");
 					req.getRequestDispatcher("listarRespostas").forward(req, resp);
-					
 				} catch (SQLException e) {} catch (ServletException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -53,7 +56,8 @@ public class UpdateController extends HttpServlet {
 				
 			} else {
 				req.setAttribute("erros", erros);
-				resp.sendRedirect("configuracao.jsp");
+				req.getRequestDispatcher("configuracao.jsp").forward(req, resp);
+				
 			}
 			
 		}
@@ -63,6 +67,7 @@ public class UpdateController extends HttpServlet {
 			int id = Integer.parseInt(req.getParameter("id"));
 			String nome = req.getParameter("nome").trim();
 			String email = req.getParameter("email").trim();
+			
 
 			String senha = req.getParameter("senha").trim();
 			
@@ -74,7 +79,9 @@ public class UpdateController extends HttpServlet {
 				erros.add("Preencha os campos de nome, senha ou email");
 			} else if(id <= 0){
 				erros.add("Id inválido");
-			}else if (erros.isEmpty() == false) {
+			}
+			
+			if (erros.isEmpty() == false) {
 				return false;
 			}
 			

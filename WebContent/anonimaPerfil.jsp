@@ -32,7 +32,7 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
       <div class="collapse navbar-collapse navHeaderCollapse">
         <ul class="nav navbar-nav navbar-right">
 
-          <li class="active"> Perfil</li>
+          <li class="active"> <a href="#">Perfil</a></li>
 
           <li><a href="/Qask/anonima.jsp">Pesquisar</a></li>
           <li><a href="sair">Volta p/ login</a></li>

@@ -24,49 +24,57 @@ public class InsertController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		List<String> erros = new ArrayList<String>();
+		
 		Pessoa pessoa = new Pessoa();
-		if (isValid(req, pessoa, erros)){
+		
+		if (isValid(req, pessoa)){
 			
 			Connection connection = (Connection) req.getAttribute("connection");
 
 			PessoaDAO dao = new PessoaDAO(connection);
 			try {
-				dao.insert(pessoa);
+				if( !dao.authenticate(pessoa) ){
+					dao.insert(pessoa);
+					req.getRequestDispatcher("login.jsp").forward(req, resp);
+				}
 				
-				resp.sendRedirect("login.jsp");
+				req.setAttribute("erro", "uma pessoa com nome "+pessoa.getNome()+" já existe!");
+				req.getRequestDispatcher("login.jsp").forward(req, resp);
 			} catch (SQLException e) {
 				
 			}
 			
 
 		} else {
-			req.setAttribute("erros", erros);
 			req.getRequestDispatcher("login.jsp").forward(req, resp);
 		}
 		
 	}
 
-	private boolean isValid(HttpServletRequest req, Pessoa pessoa, List<String> erros) {
+	private boolean isValid(HttpServletRequest req, Pessoa pessoa) {
+		 
+		String nome = req.getParameter("register-username").trim();
+		String email = req.getParameter("register-email").trim();
+		String senha = req.getParameter("register-password").trim();
+		String confirmaSenha = req.getParameter("register-confirm-password").trim();
 		
-		String nome = req.getParameter("username").trim();
-		String email = req.getParameter("email").trim();
-		String senha = req.getParameter("password").trim();
 		
-		
-		if (nome == null || senha == null || email == null) {
-			erros.add("Preencha os campos de nome e senha");
+		if (nome == null || senha == null || email == null ) {
+			return false;
 			
 		} else if (nome.trim().equals("") || senha.trim().equals("") || email.trim().equals("")) {
-			erros.add("Preencha os campos de nome, senha ou email");
-		} else if (erros.isEmpty() == false) {
+			return false;
+		}else if( !senha.equals(confirmaSenha) ){
 			return false;
 		}
+		
 		
 		
 		pessoa.setNome(nome);
 		pessoa.setSenha(senha);
 		pessoa.setEmail(email);
+		
+		System.out.println("nome"+pessoa.getNome());
 		
 		return true;
 	}

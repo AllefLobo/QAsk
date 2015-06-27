@@ -64,14 +64,10 @@ Based on tutorial from: http://www.coders-guide.com/watch.php?v=53
         </br>
         </br>
         <div id="erro" class="alert alert-danger" role="alert">
-	
-	
-		<c:forEach var="erro" items="${erros}"  >
-			${erro}
-		</c:forEach>
-
-	
-	</div>
+			<c:forEach var="erro" items="${erros}"  >
+				${erro}
+			</c:forEach>
+		</div>
         <input type='submit' class="btn btn-primary" value='Atualizar'>
 
 

@@ -28,7 +28,7 @@ public class AutenticacaoAnonimoControle extends HttpServlet {
 		PessoaDAO dao = new PessoaDAO(connection);
 		Pessoa anonima = new Pessoa();
 		
-		anonima = dao.buscarPessoa(3);
+		anonima = dao.buscarPessoa(1);
 		session.setAttribute("anonimo", anonima);
 		
 		try {
